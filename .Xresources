@@ -1,0 +1,76 @@
+URxvt.scrollBar: off
+URxvt.font:     xft:bitstream vera sans mono:size=14:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=14:antialias=true
+
+URxvt*termName:rxvt-unicode-256color
+URxvt.jumpScroll: false
+URxvt.saveLines: 32
+URxvt.letterSpace: 0
+URxvt.internalBorder: 0
+URxvt*loginShell: true
+Xft.dpi: 72
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: false
+Xft.hinstyle: hintfull
+Xft.lcdfilter: lcdlight
+URxvt*xftAntialias: true
+
+*mapAlert:         true
+*visualBell:       true
+*urgentOnBell:     true
+
+urxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select
+URxvt.url-launcher: /opt/google/chrome/google-chrome
+URxvt.matcher.button: 1
+URxvt.colorUL: #4682B4
+urxvt.depth: 32
+URxvt.transparent: false
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+urxvt*secondaryScroll: true
+urxvt*saveLines: 500
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+
+URxvt.keysym.Shift-Control-C : perl:clipboard:copy
+URxvt.keysym.Shift-Control-V : perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.url-select.launcher:  google-chrome
+URxvt.url-select.underline: true
+
+*background: #1A1A1A
+*foreground: #d0d0d0
+
+!! black dark/light
+*color0: #000000
+*color8: #002b36
+  
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
+
+!! green dark/light
+*color2: #00FF00
+*color10: #00FF00
+
+!! yellow dark/light
+*color3: #ffc800
+*color11: #ffc800
+
+!! blue dark/light
+*color4: #3B89B5
+*color12: #3B89B5
+
+!! magenta dark/light
+*color5: #77438F
+*color13: #77438F
+
+!! cyan dark/light
+*color6: #00FFFF
+*color14: #00FFFF
+
+!! white dark/light
+*color7: #d0d0d0
+*color15: #d0d0d0
