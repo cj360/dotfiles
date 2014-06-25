@@ -48,11 +48,11 @@ themes_dir = (config_dir .. "/powerarrowf")
 
 beautiful.init(themes_dir .. "/theme.lua")
 
--- This is used later as the default terminal, browser and editor to run.
-terminal = "terminator"
+-- This is used later as the default terminal and editor to run.
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
-browser = "chromium"
+browser = "google-chrome"
 
 font = "Inconsolata 11"
 
@@ -73,8 +73,6 @@ arr7 = wibox.widget.imagebox()
 arr7:set_image(beautiful.arr7)
 arr8 = wibox.widget.imagebox()
 arr8:set_image(beautiful.arr8)
-arr9 = wibox.widget.imagebox()
-arr9:set_image(beautiful.arr9)
 
 
 -- Default modkey.
@@ -97,7 +95,8 @@ local layouts =
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -152,10 +151,10 @@ clockicon:set_image(beautiful.clock)
 netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, function(widget, args)
     local interface = ""
-    if args["{wlp2s0 carrier}"] == 1 then
-        interface = "wlp2s0"
-    elseif args["{enp0s25 carrier}"] == 1 then
-        interface = "enp0s25"
+    if args["{wlp3s0 carrier}"] == 1 then
+        interface = "wlp3s0"
+    elseif args["{enp5s0 carrier}"] == 1 then
+        interface = "enp5s0"
     else
         return ""
     end
@@ -172,7 +171,7 @@ vicious.register(neticon, vicious.widgets.wifi, function(widget, args)
     else
         neticon:set_image(beautiful.netlow)
     end
-end, 120, 'wlp2s0')
+end, 120, 'wlp3s0')
 
 
 --{{ Battery Widget }} --
@@ -187,7 +186,7 @@ vicious.register( batwidget, vicious.widgets.bat, '<span background="#92B0A0" fo
 fswidget = wibox.widget.textbox()
 
 vicious.register(fswidget, vicious.widgets.fs,
-'<span background="#D0785D" font="Inconsolata 11"> <span font="Inconsolata 11" color="#EEEEEE">${/home used_gb}/${/home avail_gb} GB </span></span>', 
+'<span background="#D0785D" font="Inconsolata 11"> <span font="Inconsolata 11" color="#EEEEEE">${/ used_gb}/${/ avail_gb} GB </span></span>', 
 800)
 
 fsicon = wibox.widget.imagebox()
@@ -228,22 +227,6 @@ memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, '<span background="#777E76" font="Inconsolata 11"> <span font="Inconsolata 11" color="#EEEEEE" background="#777E76">$2MB </span></span>', 20)
 memicon = wibox.widget.imagebox()
 memicon:set_image(beautiful.mem)
-
---{{--| Mail widget |---------
-mailicon = wibox.widget.imagebox()
-
-vicious.register(mailicon, vicious.widgets.gmail, function(widget, args)
-    local newMail = tonumber(args["{count}"])
-    if newMail > 0 then
-        mailicon:set_image(beautiful.mail)
-    else
-        mailicon:set_image(beautiful.mailopen)
-    end
-end, 15)
-
--- to make GMail pop up when pressed:
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1,
-function () awful.util.spawn_with_shell(browser .. " gmail.com") end)))
 
 
 -- Create a wibox for each screen and add it
@@ -323,8 +306,6 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(arr9)
-    right_layout:add(mailicon)
     right_layout:add(arr8)
     right_layout:add(memicon)
     right_layout:add(memwidget)
@@ -373,7 +354,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
--- {{ Opens Chromium }} --
+-- {{ Opens Google Chrom }} --
 
 awful.key({ "Control", "Shift"}, "c", function() awful.util.spawn("google-chrome") end),
 awful.key({ "Control", "Shift"}, "n", function() awful.util.spawn("google-chrome -incognito") end),
@@ -382,13 +363,6 @@ awful.key({ "Control", "Shift"}, "n", function() awful.util.spawn("google-chrome
 
 awful.key({ "Control",        }, "Escape", function() awful.util.spawn("systemctl poweroff") end),
 
--- {{ Spawns Skype }} --
-
-awful.key({ "Control", "Shift"}, "s", function() awful.util.spawn("skype") end),
-
--- {{ Spawns Sublime }} --
-
-awful.key({ "Control", "Shift"}, "b", function() awful.util.spawn("/opt/sublime-text/sublime_text") end),
 
 -- {{ Volume Control }} --
 
@@ -396,18 +370,6 @@ awful.key({     }, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer s
 awful.key({     }, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5%-", false) end),
 awful.key({     }, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle", false) end),
 
--- {{ Vim-like controls:
-
-    awful.key({ modkey,           }, "l",
-        function ()
-            awful.client.focus.bydirection("right")
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ modkey,           }, "h",
-        function ()
-            awful.client.focus.bydirection("left")
-            if client.focus then client.focus:raise() end
-        end),
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.bydirection("down")
@@ -418,12 +380,14 @@ awful.key({     }, "XF86AudioMute", function() awful.util.spawn("amixer set Mast
             awful.client.focus.bydirection("up")
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -487,6 +451,7 @@ clientkeys = awful.util.table.join(
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
+        -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
                         local screen = mouse.screen
@@ -495,6 +460,7 @@ for i = 1, 9 do
                            awful.tag.viewonly(tag)
                         end
                   end),
+        -- Toggle tag.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
                       local screen = mouse.screen
@@ -503,18 +469,24 @@ for i = 1, 9 do
                          awful.tag.viewtoggle(tag)
                       end
                   end),
+        -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
-                      local tag = awful.tag.gettags(client.focus.screen)[i]
-                      if client.focus and tag then
-                          awful.client.movetotag(tag)
+                      if client.focus then
+                          local tag = awful.tag.gettags(client.focus.screen)[i]
+                          if tag then
+                              awful.client.movetotag(tag)
+                          end
                      end
                   end),
+        -- Toggle tag.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
-                      local tag = awful.tag.gettags(client.focus.screen)[i]
-                      if client.focus and tag then
-                          awful.client.toggletag(tag)
+                      if client.focus then
+                          local tag = awful.tag.gettags(client.focus.screen)[i]
+                          if tag then
+                              awful.client.toggletag(tag)
+                          end
                       end
                   end))
 end
@@ -529,6 +501,7 @@ root.keys(globalkeys)
 -- }}}
 
 -- {{{ Rules
+-- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -629,13 +602,6 @@ function run_once(cmd)
         end
         awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
-
--- {{ I need redshift to save my eyes }} -
-run_once("redshift -l 49.26:-123.23")
-awful.util.spawn_with_shell("xmodmap ~/.speedswapper")
-
--- {{ Turns off the terminal bell }} --
-awful.util.spawn_with_shell("/usr/bin/xset b off")
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
