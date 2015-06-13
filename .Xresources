@@ -21,7 +21,7 @@ URxvt.boldFont: xft:Terminus:pixelsize=18
 ! -- perl
 URxvt.keysym.Mod4-v: perl:clipboard:paste
 urxvt.perl-ext-common: default,matcher,clipboard
-URxvt.url-select.launcher:  google-chrome
+URxvt.url-select.launcher: /usr/bin/google-chrome-stable
 URxvt.url-select.underline: true
 urxvt*saveLines: 1200000
 URxvt.keysym.M-c:   perl:clipboard:copy
