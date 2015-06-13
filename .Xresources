@@ -1,76 +1,71 @@
-URxvt.scrollBar: off
-URxvt.font:     xft:bitstream vera sans mono:size=14:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=14:antialias=true
-
-URxvt*termName:rxvt-unicode-256color
-URxvt.jumpScroll: false
-URxvt.saveLines: 32
-URxvt.letterSpace: 0
-URxvt.internalBorder: 0
-URxvt*loginShell: true
-Xft.dpi: 72
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: false
-Xft.hinstyle: hintfull
-Xft.lcdfilter: lcdlight
-URxvt*xftAntialias: true
-
-*mapAlert:         true
-*visualBell:       true
-*urgentOnBell:     true
-
-urxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select
-URxvt.url-launcher: /opt/google/chrome/google-chrome
-URxvt.matcher.button: 1
-URxvt.colorUL: #4682B4
-urxvt.depth: 32
-URxvt.transparent: false
+! Xresource file
+URxvt*depth: 12
+URxvt*geometry: 80x30
+URxvt.borderColor: #7f20ff
+URxvt.internalBorder: 4
+! -- scrollbar
+URxvt.scrollstyle: plain
+URxvt.scrollBar: false
 URxvt.scrollTtyOutput: false
-URxvt.scrollWithBuffer: true
+URxvt.scrollWidthBuffer: true
 URxvt.scrollTtyKeypress: true
-urxvt*secondaryScroll: true
-urxvt*saveLines: 500
-URxvt*keysym.Home: \033[1~
-URxvt*keysym.End: \033[4~
+URxvt.iconFile:     /home/andrew/Pictures/icons/Terminal-icon.png
+URXvt.tabbed.reopen-on-close:  no
 
-URxvt.keysym.Shift-Control-C : perl:clipboard:copy
-URxvt.keysym.Shift-Control-V : perl:clipboard:paste
-URxvt.iso14755: False
+! -- login shell
+URxvt.loginShell: false
+! -- font
+URxvt.font: xft:Terminus:pixelsize=18
+URxvt.boldFont: xft:Terminus:pixelsize=18
+
+! -- perl
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+urxvt.perl-ext-common: default,matcher,clipboard
 URxvt.url-select.launcher:  google-chrome
 URxvt.url-select.underline: true
+urxvt*saveLines: 1200000
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.iso14755: False
 
-*background: #1A1A1A
-*foreground: #d0d0d0
+!URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+!URxvt.keysym.M-u:           perl:url-select:select_next
+!URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+!URxvt.keysym.M-s:           perl:keyboard-select:search
 
-!! black dark/light
-*color0: #000000
-*color8: #002b36
-  
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
+! special
+*.foreground:   #7f20ff
+*.background:   #020005
+*.cursorColor:  #7f20ff
 
-!! green dark/light
-*color2: #00FF00
-*color10: #00FF00
+! black
+*.color0:       #1d1724
+*.color8:       #b4d657
 
-!! yellow dark/light
-*color3: #ffc800
-*color11: #ffc800
+! red
+*.color1:       #26202f
+*.color9:       #de92b4
 
-!! blue dark/light
-*color4: #3B89B5
-*color12: #3B89B5
+! green
+*.color2:       #383044
+*.color10:      #ee96be
 
-!! magenta dark/light
-*color5: #77438F
-*color13: #77438F
+! yellow
+*.color3:       #514661
+*.color11:      #6ecdb0
 
-!! cyan dark/light
-*color6: #00FFFF
-*color14: #00FFFF
+! blue
+*.color4:       #716186
+*.color12:      #bda2e1
 
-!! white dark/light
-*color7: #d0d0d0
-*color15: #d0d0d0
+! magenta
+*.color5:       #9386a5
+*.color13:      #d7c8ee
+
+! cyan
+*.color6:       #b9b0c5
+*.color14:      #72d3f4
+
+! white
+*.color7:       #e4e1e9
+*.color15:      #7bb3c9
