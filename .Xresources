@@ -1,71 +1,46 @@
-! Xresource file
-URxvt*depth: 12
-URxvt*geometry: 80x30
-URxvt.borderColor: #7f20ff
-URxvt.internalBorder: 4
-! -- scrollbar
-URxvt.scrollstyle: plain
-URxvt.scrollBar: false
-URxvt.scrollTtyOutput: false
-URxvt.scrollWidthBuffer: true
-URxvt.scrollTtyKeypress: true
-URxvt.iconFile:     /home/andrew/Pictures/icons/Terminal-icon.png
-URXvt.tabbed.reopen-on-close:  no
-
-! -- login shell
-URxvt.loginShell: false
-! -- font
-URxvt.font: xft:Terminus:pixelsize=18
-URxvt.boldFont: xft:Terminus:pixelsize=18
-
-! -- perl
-URxvt.keysym.Mod4-v: perl:clipboard:paste
-urxvt.perl-ext-common: default,matcher,clipboard
-URxvt.url-select.launcher: /usr/bin/google-chrome-stable
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
-urxvt*saveLines: 1200000
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.iso14755: False
-
-!URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-!URxvt.keysym.M-u:           perl:url-select:select_next
-!URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-!URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.keysym.M-c:           perl:clipboard:copy
+URxvt.keysym.M-v:           perl:clipboard:paste
+URxvt.iconFile:             /home/andrew/Pictures/icons/Terminal-icon.png
+URxvt.scrollBar:            false
+URxvt.font:                 xft:Terminus:pixelsize=18
+URxvt.boldFont:             xft:Terminus:pixelsize=18
 
 ! special
-*.foreground:   #7f20ff
-*.background:   #020005
-*.cursorColor:  #7f20ff
+*.foreground:   #74ff7a
+*.background:   #1d1d1d
+*.cursorColor:  #74ff7a
 
 ! black
-*.color0:       #1d1724
-*.color8:       #b4d657
+*.color0:       #1d1d1d
+*.color8:       #4c4c4c
 
 ! red
-*.color1:       #26202f
-*.color9:       #de92b4
+*.color1:       #784742
+*.color9:       #64ddf0
 
 ! green
-*.color2:       #383044
-*.color10:      #ee96be
+*.color2:       #427363
+*.color10:      #cf18f3
 
 ! yellow
-*.color3:       #514661
-*.color11:      #6ecdb0
+*.color3:       #665847
+*.color11:      #ede265
 
 ! blue
-*.color4:       #716186
-*.color12:      #bda2e1
+*.color4:       #6a708b
+*.color12:      #6ac0fd
 
 ! magenta
-*.color5:       #9386a5
-*.color13:      #d7c8ee
+*.color5:       #7a378b
+*.color13:      #ef79ae
 
 ! cyan
-*.color6:       #b9b0c5
-*.color14:      #72d3f4
+*.color6:       #52707b
+*.color14:      #49d4dd
 
 ! white
-*.color7:       #e4e1e9
-*.color15:      #7bb3c9
+*.color7:       #b3b3b3
+*.color15:      #00b40d
