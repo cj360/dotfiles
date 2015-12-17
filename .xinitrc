@@ -1,9 +1,6 @@
-#!/bin/sh
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
-
+#! /bin/bash
+# my .xinitrc config
+# start dbus
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
     [ -x "$f" ] && . "$f"
@@ -11,11 +8,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
+xrdb -merge .Xresources
 
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-exec startxfce4
+# start wm/de
+#exec startxfce4
+exec i3
