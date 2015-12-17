@@ -48,6 +48,9 @@ URxvt.scrollBar: false
 !URxvt*scrollstyle: plain
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollWidthBuffer: true
+URxvt.scrollTtyKeypress: true
 
 ! URXVT TABS
 !------------------------------------------------
@@ -69,40 +72,41 @@ URxvt.keysym.F11: 			perl:fullscreen:switch
 ! URxvt Colors
 
 ! special
-*.foreground: #93a1a1
-*.background: #3c3b37
+*.foreground:   #43fb56
+*.background:   #263238
+*.cursorColor:  #43fb56
 
 ! black
-*.color0: #5f5f5f
-*.color8: #828282
+*.color0:       #212d32
+*.color8:       #37474f
 
 ! red
-*.color1: #d96468
-*.color9: #d98f93
+*.color1:       #ec5f67
+*.color9:       #f77669
 
 ! green
-*.color2: #a2d964
-*.color10: #b8d98f
+*.color2:       #8bd649
+*.color10:      #c3e88d
 
 ! yellow
-*.color3: #d9c964
-*.color11: #d9cf8f
+*.color3:       #f1e655
+*.color11:      #4af81c
 
 ! blue
-*.color4: #64a2d9
-*.color12: #8f99d9
+*.color4:       #85678f
+*.color12:      #5f819d
 
 ! magenta
-*.color5: #9a64d9
-*.color13: #b08fd9
+*.color5:       #7986cb
+*.color13:      #82b1ff
 
 ! cyan
-*.color6: #64d9d5
-*.color14: #8fd9d5
+*.color6:       #5c7e8c
+*.color14:      #80cbc4
 
 ! white
-*.color7: #989898
-*.color15: #c5c5c5
+*.color7:       #707880
+*.color15:      #09e08c
 
 urxvt*depth: 32
 urxvt*background: rgba:0000/0000/0200/c800
