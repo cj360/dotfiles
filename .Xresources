@@ -1,46 +1,108 @@
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-URxvt.url-select.launcher:  chromium
-URxvt.url-select.underline: true
-URxvt.keysym.M-c:           perl:clipboard:copy
-URxvt.keysym.M-v:           perl:clipboard:paste
-URxvt.iconFile:             /home/andrew/Pictures/icons/Terminal-icon.png
-URxvt.scrollBar:            false
-URxvt.font:                 xft:Terminus:pixelsize=18
-URxvt.boldFont:             xft:Terminus:pixelsize=18
+! URXVT GENERAL CONFIG
+!------------------------------------------------
+URxvt*iconFile: /home/andrew/.icons/Faience/apps/32/Terminal.png
+
+! URXVT FONTS
+!------------------------------------------------
+
+URxvt*font:        xft:Inconsolata-Regular:pixelsize=18
+URxvt*boldFont:    xft:Inconsolata-Bold:pixelsize=18
+URxvt*letterSpace: -1
+URxvt*allow_bold:  true
+
+! URXVT FONT SETTINGS
+!------------------------------------------------
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+! URXVT ENABLE LINK SUPPORT
+!------------------------------------------------
+
+URxvt.perl-ext-common: default,matcher,tabbedex,vtwheel,clipboard
+!tabbed
+URxvt.matcher.button:        1
+URxvt.perl-ext:              default,url-select
+URxvt.keysym.M-u:            perl:url-select:select_next
+URxvt.url-select.launcher:   /usr/bin/chromium
+URxvt.url-select.underline:  true
+
+!disable the fucking bell
+URxvt.insecure: 			false
+
+! URXVT COPY PASTE SHORTCUTS
+!------------------------------------------------
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+
+! URXVT SCROLLBAR AND CURSOR STYLE
+!------------------------------------------------
+URxvt*saveLines: 300000
+URxvt.scrollBar: false
+!URxvt*scrollstyle: plain
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
+! URXVT TABS
+!------------------------------------------------
+
+URxvt.tabbedex.autohide: 	yes
+URxvt.tabbedex.tabbar-fg: 	2
+URxvt.tabbedex.tabbar-bg: 	0
+URxvt.tabbedex.tab-fg:    	10
+URxvt.tabbedex.tab-bg:    	0
+URxvt.tabbedex.title: 		yes
+URxvt.tabbedex.new-button:  no
+
+! URXVT FULLSCREEN TOGGLE
+!------------------------------------------------
+
+URxvt.keysym.F11: 			perl:fullscreen:switch
+
+!--------------------------------------------
+! URxvt Colors
 
 ! special
-*.foreground:   #74ff7a
-*.background:   #1d1d1d
-*.cursorColor:  #74ff7a
+*.foreground: #93a1a1
+*.background: #3c3b37
 
 ! black
-*.color0:       #1d1d1d
-*.color8:       #4c4c4c
+*.color0: #5f5f5f
+*.color8: #828282
 
 ! red
-*.color1:       #784742
-*.color9:       #64ddf0
+*.color1: #d96468
+*.color9: #d98f93
 
 ! green
-*.color2:       #427363
-*.color10:      #cf18f3
+*.color2: #a2d964
+*.color10: #b8d98f
 
 ! yellow
-*.color3:       #665847
-*.color11:      #ede265
+*.color3: #d9c964
+*.color11: #d9cf8f
 
 ! blue
-*.color4:       #6a708b
-*.color12:      #6ac0fd
+*.color4: #64a2d9
+*.color12: #8f99d9
 
 ! magenta
-*.color5:       #7a378b
-*.color13:      #ef79ae
+*.color5: #9a64d9
+*.color13: #b08fd9
 
 ! cyan
-*.color6:       #52707b
-*.color14:      #49d4dd
+*.color6: #64d9d5
+*.color14: #8fd9d5
 
 ! white
-*.color7:       #b3b3b3
-*.color15:      #00b40d
+*.color7: #989898
+*.color15: #c5c5c5
+
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
