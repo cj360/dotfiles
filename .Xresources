@@ -5,10 +5,12 @@ URxvt*iconFile: /home/andrew/.icons/Faience/apps/32/Terminal.png
 ! URXVT FONTS
 !------------------------------------------------
 
-URxvt*font:        xft:Inconsolata-Regular:pixelsize=18
-URxvt*boldFont:    xft:Inconsolata-Bold:pixelsize=18
-URxvt*letterSpace: -1
-URxvt*allow_bold:  true
+URxvt.font:xft:Inconsolata:pixelsize=18
+URxvt.boldFont:xft:Inconsolata:bold:pixelsize=18
+URxvt.italicfont:xft:Inconsolata:italic:pixelsize=18
+URxvt.bolditalicFont:xft:Inconsolata:bold:italic:pixelsize=18
+URxvt*letterSpace: +1
+URxvt*allow_bold: true
 
 ! URXVT FONT SETTINGS
 !------------------------------------------------
@@ -22,7 +24,7 @@ Xft.lcdfilter: lcddefault
 ! URXVT ENABLE LINK SUPPORT
 !------------------------------------------------
 
-URxvt.perl-ext-common: default,matcher,tabbedex,vtwheel,clipboard
+URxvt.perl-ext-common: default,matcher,vtwheel,clipboard
 !tabbed
 URxvt.matcher.button:        1
 URxvt.perl-ext:              default,url-select
