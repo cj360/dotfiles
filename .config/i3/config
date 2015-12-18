@@ -293,30 +293,6 @@ bar {
 
 }
 
-
-
-
-#bar {
-	#height 16
-    #tray_output primary
-    #position top
-    # strip_workspace_numbers yes
-    # mode hide
-	#colors {
-		#background #222222
-		#separator  #222222
-		#statusline #dddddd		
-	
-		#focused_workspace  $color  $color  #ffffff
-		#active_workspace   #333333 #333333 #888888
-		#inactive_workspace #333333 #333333 #888888
-		#urgent_workspace   #900000 #900000 #ffffff
-	#}
-	#status_command .config/tint2/tint2rc
-	#status_command i3status -c .config/i3/i3status.conf
-        # status_command i3status -c $HOME/i3status.conf
-#}
-
 #--------------------------------------------------------------------------------
 
 # class                 border  backgr. text   
