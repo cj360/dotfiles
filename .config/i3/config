@@ -280,14 +280,6 @@ bar {
 		active_workspace   #333333 #333333 #888888
 		inactive_workspace #333333 #333333 #888888
 		urgent_workspace   #900000 #900000 #ffffff
-
-			#background              $status_grey_bg
-			#statusline              $white
-			#class                  border              backgr.           text
-			#focused_workspace       $purple             $green            $status_grey_bg
-			#active_workspace        $purple             $status_grey_bg   $status_grey_bg
-			#inactive_workspace      $status_grey_bg     $status_grey_bg   $lightgrey
-			#urgent_workspace        $black              $red              $status_grey_bg
 		}
                         status_command i3status -c .config/i3/i3status.conf
 
@@ -304,9 +296,12 @@ client.urgent           #900000 #900000 #ffffff
 #--------------------------------------------------------------------------------
 
 # Startup programs
-#exec --no-startup-id "devmon --no-gui"
-#exec --no-startup-id /usr/bin/compton --config ~/.i3/compton.conf        
-exec --no-startup-id feh --bg-fill /home/andrew/Pictures/ETmvQYf.jpg
+exec --no-startup-id /usr/bin/compton --config ~/.config/i3/compton.conf         
+exec --no-startup-id feh --bg-fill /home/andrew/Pictures/zWOoLZu.jpg
+exec --no-startup-id nm-applet
+exec --no-startup-id caffeine
+#exec --no-startup-id xautolock -time 10 -locker blurlock
+#exec --no-startup-id eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 
 #--------------------------------------------------------------------------------
 
@@ -341,14 +336,6 @@ bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh
 
 #take a screenshot
 bindsym Print exec scrot /home/andrew/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
-
-#--------------------------------------------------------------------------------
-
-#exec --no-startup-id eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
-exec --no-startup-id nm-applet
-exec --no-startup-id /usr/bin/compton --config ~/.config/i3/compton.conf 
-exec --no-startup-id caffeine
-#exec --no-startup-id xautolock -time 10 -locker blurlock
 
 #--------------------------------------------------------------------------------
 
