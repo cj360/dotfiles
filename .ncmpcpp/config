@@ -41,5 +41,5 @@ visualizer_output_name = "FIFO"
 visualizer_in_stereo = "yes"
 visualizer_fifo_path = "/tmp/mpd.fifo"
 #visualizer_sync_interval = "1"
-visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "spectrum" (spectrum/wave)
 visualizer_look = "+|"
