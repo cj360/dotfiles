@@ -5,12 +5,18 @@ URxvt*iconFile: /home/andrew/.icons/Faience/apps/32/Terminal.png
 ! URXVT FONTS
 !------------------------------------------------
 
-URxvt.font:xft:Inconsolata:pixelsize=18
-URxvt.boldFont:xft:Inconsolata:bold:pixelsize=18
-URxvt.italicfont:xft:Inconsolata:italic:pixelsize=18
-URxvt.bolditalicFont:xft:Inconsolata:bold:italic:pixelsize=18
-URxvt*letterSpace: +1
-URxvt*allow_bold: true
+
+*.font: xft:Terminus:style=Regular:size=12, \
+
+        xft:FontAwesome:style=Regular:size=12
+
+
+!URxvt.font:xft:Inconsolata,FontAwesome:pixelsize=18
+!URxvt.boldFont:xft:Inconsolata:bold:pixelsize=18
+!URxvt.italicfont:xft:Inconsolata:italic:pixelsize=18
+!URxvt.bolditalicFont:xft:Inconsolata:bold:italic:pixelsize=18
+!URxvt*letterSpace: +1
+!URxvt*allow_bold: true
 
 ! URXVT FONT SETTINGS
 !------------------------------------------------
@@ -51,7 +57,7 @@ URxvt.scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 URxvt.scrollTtyOutput: false
-URxvt.scrollWidthBuffer: true
+URxvt.scrollWidthBuffer: false
 URxvt.scrollTtyKeypress: true
 
 ! URXVT TABS
@@ -73,42 +79,22 @@ URxvt.keysym.F11: 			perl:fullscreen:switch
 !--------------------------------------------
 ! URxvt Colors
 
-! special
-*.foreground:   #43fb56
-*.background:   #263238
-*.cursorColor:  #43fb56
-
-! black
-*.color0:       #212d32
-*.color8:       #37474f
-
-! red
-*.color1:       #ec5f67
-*.color9:       #f77669
-
-! green
-*.color2:       #8bd649
-*.color10:      #c3e88d
-
-! yellow
-*.color3:       #f1e655
-*.color11:      #4af81c
-
-! blue
-*.color4:       #85678f
-*.color12:      #5f819d
-
-! magenta
-*.color5:       #7986cb
-*.color13:      #82b1ff
-
-! cyan
-*.color6:       #5c7e8c
-*.color14:      #80cbc4
-
-! white
-*.color7:       #707880
-*.color15:      #09e08c
-
-urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/c800
+*foreground:	#ecf0f1
+*background:	#141516
+*cursorColor:	#ecf0f1
+*color0:	#3e464e
+*color8:	#3e464e
+*color1:	#db0a5b
+*color9:	#db0a5b
+*color2:	#3fc380
+*color10:	#3fc380
+*color3:	#f2784b
+*color11:	#f2784b
+*color4:	#22a7f0
+*color12:	#22a7f0
+*color5:	#f64747
+*color13:	#f64747
+*color6:	#55aeae
+*color14:	#55aeae
+*color7:	#ecf0f1
+*color15:	#ecf0f1

@@ -12,4 +12,7 @@ xrdb -merge .Xresources
 
 # start wm/de
 #exec startxfce4
-exec i3
+#xset s off
+#xset -dpms
+#xset s noblank
+#exec i3

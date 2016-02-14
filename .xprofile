@@ -1,0 +1,6 @@
+xrdb -merge .Xresources
+numlockx &
+#xset s off
+#xset -dpms
+#xset s noblank
+exec i3

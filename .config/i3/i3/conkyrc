@@ -17,4 +17,4 @@ ${if_mpd_playing}${mpd_artist}   ▰  ${mpd_title}   ▰  ${mpd_album}${endif}  
   ${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"}     \
   ${time %a %b %d}     \
  ${battery_percent BAT0}%    \
-  ${time %l:%M}
+ ${time %l:%M}
