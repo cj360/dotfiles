@@ -7,7 +7,6 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-alias packer='packer-color'
 export EDITOR=nano
 shopt -s checkwinsize
 alias git-pick='git cherry-pick'

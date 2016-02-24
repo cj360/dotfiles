@@ -1,6 +1,3 @@
-xrdb -merge .Xresources
 numlockx &
-#xset s off
-#xset -dpms
-#xset s noblank
+xrdb -merge .Xresources
 exec i3
