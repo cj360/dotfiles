@@ -60,7 +60,7 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-exec --no-startup-id feh --bg-fill /home/andrew/Pictures/green-triangles.png
+exec --no-startup-id feh --bg-fill /home/andrew/Pictures/fo4-bridge.jpg
 
 # change focus
 bindsym $mod+$left focus left
@@ -217,6 +217,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id caffeine
 
 #--------------------------------------------------------------------------------
+
+
+for_window [class="Transmission-gtk"] floating enable
+for_window [class="Steam"] floating enable
+
 
 # Multimedia Keys
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
