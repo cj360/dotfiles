@@ -195,21 +195,9 @@ client.focused_inactive #333333 #333333 #888888
 client.unfocused        #333333 #333333 #888888
 client.urgent           #900000 #900000 #ffffff
 
-#--------------------------------------------------------------------------------
-
-# Custom KeyBinds
-bindsym $mod+Shift+w exec --no-startup-id chromium
-bindsym $mod+Shift+f exec --no-startup-id pcmanfm
-bindsym $mod+Shift+u exec --no-startup-id urxvt
-
-# toggle touchpad
-bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh
-
-#take a screenshot
-bindsym Print exec scrot /home/andrew/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
-
 
 #--------------------------------------------------------------------------------
+
 
 # Startup programs
 exec --no-startup-id xbacklight -set 70
@@ -218,15 +206,30 @@ exec --no-startup-id caffeine
 
 #--------------------------------------------------------------------------------
 
+# Custom KeyBinds
+bindsym $mod+Shift+w exec --no-startup-id chromium
+bindsym $mod+Shift+f exec --no-startup-id pcmanfm
+bindsym $mod+Shift+u exec --no-startup-id urxvt
 
+# Toggle touchpad
+bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh
+
+# Take a screenshot
+bindsym Print exec scrot /home/andrew/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+
+# Set programs to float by default
 for_window [class="Transmission-gtk"] floating enable
 for_window [class="Steam"] floating enable
 
-
 # Multimedia Keys
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 4+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 4- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
 
 #--------------------------------------------------------------------------------
 # Shutdown, Reboot, Lock Screen, and Logout #657b83
