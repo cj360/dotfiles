@@ -82,7 +82,6 @@ lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
 linux
-linux-ck-sandybridge
 logrotate
 lvm2
 lxappearance
