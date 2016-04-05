@@ -1,25 +1,41 @@
-caffeine-ng
-chromium-pepper-flash
-chromium-widevine
-google-talkplugin
-green-arc-gtk-theme-git
-i3-gaps-git
-i3lock-blur
-libpng12
-libtinfo
-menda-circle-icon-theme-git
-menda-themes-dark-git
-menda-themes-git
-nano-syntax-highlighting-git
-nitrux-icon-theme
-python-ewmh
-python-xlib
-repo
-rxvt-unicode-pixbuf
-terminus-font-ttf
-ttf-font-awesome
-urxvt-perls-git
-urxvt-vtwheel
-vertex-themes
-wps-office
-xcursor-menda-git
+breeze-hacked-cursor-theme 1.0-3
+caffeine-ng 3.3.3-1
+candra-themes-3.18 7_11112015-1
+chromium-pepper-flash 1:20.0.0.306-1
+chromium-widevine 1:1.4.8.824-2
+cower 14-2
+flattr-icon-theme-git 566.7d02906-1
+google-talkplugin 5.41.0.0-3
+green-arc-gtk-theme-git 72.128e315-1
+grub-customizer 4.0.6-2
+gtk-theme-arc 20151214-2
+i3-gaps-git 4.12-1
+i3lock-blur 2.7.2-1
+lemonbar-xft-git 254.a43b801-1
+libtinfo 6-7
+menda-circle-icon-theme-git r6.19d251b-1
+menda-themes-dark-git r88.6ceace6-1
+menda-themes-git r88.6ceace6-1
+nano-syntax-highlighting-git 196.8b06671-1
+ncurses5-compat-libs 6.0-3
+nitrux-icon-theme 3.5.3-1
+numix-themes-archblue-git 2.5.1-3
+pacaur 4.5.5-1
+polar-night-theme 20141006-1
+pulseaudio-git v8.0.51.gc03cf89-1
+repo 1.21-7
+rxvt-unicode-pixbuf 9.22-2
+sable 3.14.31_03222015-1
+terminus-font-ttf 4.39-3
+ttf-font-awesome 4.5.0-2
+ttf-material-icons r100.f6238c9-1
+tty-clock 0.1-1
+urxvt-perls-git 123.7cc64be-1
+urxvt-vtwheel 0.3-2
+vertex-themes 20150923-3
+winusb 1.0.11-4
+wpgtk-git r120.df7aa2f-1
+wps-office 10.1.0.5503_a20p2-1
+xcursor-menda-git r4.e350325-2
+xcursor-pixelfun 3.2-1
+xcursor-pulse-glass 1.0-3

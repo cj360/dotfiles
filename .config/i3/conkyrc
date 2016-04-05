@@ -11,7 +11,6 @@ use_spacer none
 TEXT
 
 ${if_mpd_playing}${mpd_artist}   ▰  ${mpd_title}   ▰  ${mpd_album}${endif}     \
-   ${downspeedf wlp3s0} | ${upspeedf wlp3s0}     \
   ${wireless_link_qual_perc wlp3s0}  ${wireless_essid wlp3s0}     \
    ${hwmon 2 temp 1} | ${hwmon 2 temp 3}     \
   ${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"}     \

@@ -1,0 +1,43 @@
+[options]
+font = Terminus 12
+cursor_shape = ibeam
+
+[colors]
+
+# special
+foreground      = #7ea2b4
+foreground_bold = #7ea2b4
+cursor          = #7ea2b4
+background      = #000000
+
+# black
+color0  = #000000
+color8  = #5a7b8c
+
+# red
+color1  = #006e75
+color9  = #5a1c80
+
+# green
+color2  = #11ae9a
+color10 = #1f292e
+
+# yellow
+color3  = #0f8048
+color11 = #516d7b
+
+# blue
+color4  = #257fad
+color12 = #7195a8
+
+# magenta
+color5  = #5d5db1
+color13 = #c1e4f6
+
+# cyan
+color6  = #2d8f6f
+color14 = #b72dd2
+
+# white
+color7  = #7ea2b4
+color15 = #7dc9f2

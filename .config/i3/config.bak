@@ -22,6 +22,14 @@ font pango::Droid Sans 12
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# arch blue             #1793D1
+# debian red            #D70A53
+# manjaro green         #8CBC65
+# matrix green          #00FF00
+# mint green            #5FAA24
+# ubuntu orange         #F37320
+set $color #8CBC65
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -29,11 +37,18 @@ font pango::Droid Sans 12
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -48,10 +63,10 @@ bindsym $mod+d exec dmenu_run
 exec --no-startup-id feh --bg-fill /home/andrew/Pictures/wallhaven-205472.jpg
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -60,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -97,17 +112,24 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
 # switch to workspace
-bindsym $mod+1 workspace 1; exec ~/.config/lemonbar/update
-bindsym $mod+2 workspace 2; exec ~/.config/lemonbar/update
-bindsym $mod+3 workspace 3; exec ~/.config/lemonbar/update
-bindsym $mod+4 workspace 4; exec ~/.config/lemonbar/update
-bindsym $mod+5 workspace 5; exec ~/.config/lemonbar/update
-bindsym $mod+6 workspace 6; exec ~/.config/lemonbar/update
-bindsym $mod+7 workspace 7; exec ~/.config/lemonbar/update
-bindsym $mod+8 workspace 8; exec ~/.config/lemonbar/update
-bindsym $mod+9 workspace 9; exec ~/.config/lemonbar/update
-bindsym $mod+0 workspace 1; exec ~/.config/lemonbar/update
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -136,42 +158,33 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-# Enter reisze mode
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	mode hide
-	hidden_state hide
-	modifier Mod1
-  #status_command i3status
-        #tray_output primary
-  #colors {
-    #separator #dc322f
-    #background #002b36
-    #statusline #268bd2
-    #focused_workspace #fdf6e3 #2D8F6F #fdf6e3
-    #active_workspace #fdf6e3 #6c71c4 #fdf6e3
-    #inactive_workspace #586e75 #93a1a1 #002b36
-    #urgent_workspace #d33682 #d33682 #fdf6e3
-  #}
+
+        status_command conky -c /home/andrew/.config/i3/conkyrc
+        mode dock
+        position top
+        font pango:Droid Sans 12
+        mode dock
 }
 
 #--------------------------------------------------------------------------------
@@ -204,28 +217,14 @@ bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh
 # Take a screenshot
 bindsym Print exec scrot /home/andrew/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 
-# new window default border
-new_window none
-
-smart_gaps on
-gaps inner 10
-
-#floating_maximum_size 1000 x 200
-
-for_window [title="^floatme$"] floating enable
-for_window [title="Openbox Logout"] floating enable
+# Set programs to float by default
 for_window [class="Transmission-gtk"] floating enable
-for_window [class="Steam"] floating enable
 for_window [class="QEMU"] floating enable
 
 # Multimedia Keys
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 5%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 5%- unmute"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
-
-#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 4+ unmute"
-#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 4- unmute"
-#bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 4+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 4- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
@@ -244,8 +243,3 @@ mode $sysmenu {
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
-
-client.focused #2D8F6F #2D8F6F #fdf6e3 #2D8F6F
-client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
-client.unfocused #073642 #073642 #93a1a1 #586e75
-client.urgent #d33682 #d33682 #fdf6e3 #dc322f
