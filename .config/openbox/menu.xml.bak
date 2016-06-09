@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu>
+    <menu id="root-menu" label="OpenBox 3" execute="/usr/bin/obmenu-generator -i">
+    </menu>
+
+    <item label="Oblogout">
+    <action name="Execute">
+      <command>oblogout</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>oblogout</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+
+</openbox_menu>

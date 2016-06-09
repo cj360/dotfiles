@@ -7,8 +7,12 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-export EDITOR=nano
+
 shopt -s checkwinsize
+eval "$(thefuck --alias fuck)"
+export EDITOR=nano
 alias git-pick='git cherry-pick'
-export ANDROID_HOME=/opt/android-sdk
 export PATH=~/bin:$PATH
+export LANG=C
+export USE_CCACHE=1
+export CCACHE_DIR=~/.ccache
