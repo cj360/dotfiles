@@ -10,7 +10,7 @@ URxvt*allow_bold: true
 ! URXVT ENABLE LINK SUPPORT
 !------------------------------------------------
 
-URxvt.perl-ext-common: default,matcher,tabbedex,tabbed,vtwheel,clipboard
+URxvt.perl-ext-common: default,matcher,tabbed,vtwheel,clipboard
 URxvt.matcher.button:   1
 URxvt.perl-ext: default,url-select
 URxvt.keysym.M-u: perl:url-select:select_next
@@ -56,29 +56,39 @@ URxvt.keysym.F11: 			perl:fullscreen:switch
 ! URXVT COLORS
 !------------------------------------------------
 
-urxvt*background:       #2d2d2d
-urxvt*foreground:       #F5F5F5
+! special
+*.foreground:   #4db210
+*.background:   #000000
+*.cursorColor:  #4db210
 
- *color0:  #2d2d2d
- *color8: #dedede
-!red
- *color1:  #dedede
- *color9:  #dedede
-!green
- *color2:  #98d467
- *color10: #dedede
-!yellow
- *color3:  #dedede
- *color11: #dedede
-!blue   ranger folders
- *color4:  #98d467
- *color12: #98d467
-!magenta
- *color5:  #dedede
- *color13: #dedede
-!cyan
- *color6:  #dedede
- *color14: #dedede
-!white
- *color7:  #dedede
- *color15: #dedede
+! black
+*.color0:       #2b4017
+*.color8:       #8fd036
+
+! red
+*.color1:       #131612
+*.color9:       #3a4726
+
+! green
+*.color2:       #242822
+*.color10:      #92d046
+
+! yellow
+*.color3:       #3c4138
+*.color11:      #d9afef
+
+! blue
+*.color4:       #5a6055
+*.color12:      #f89fbb
+
+! magenta
+*.color5:       #7e8777
+*.color13:      #f5cdd8
+
+! cyan
+*.color6:       #a8b49f
+*.color14:      #e4c3f7
+
+! white
+*.color7:       #808080
+*.color15:      #67e085
