@@ -47,9 +47,9 @@ CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
 CPU3: ${cpu cpu3}% ${cpubar cpu3}
 
-GPU Usage: $alignr ${exec nvidia-smi | grep % | cut -c 62-63} %
-${execgraph nvidia-smi | grep % | cut -c 62-63}
-GPU VRAM: $alignr ${exec nvidia-smi | grep % | cut -c 37-40}MB
+#GPU Usage: $alignr ${nvidia gpufreq} %
+#${execgraph nvidia memfreq}
+#GPU VRAM: $alignr ${exec nvidia-smi | grep % | cut -c 37-40}MB
 
 ${font sans-serif:bold:size=10}MEMORY ${hr 2}
 ${font sans-serif:normal:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
