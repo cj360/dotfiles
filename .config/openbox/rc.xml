@@ -57,57 +57,57 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Sans</name>
-      <size>11</size>
+      <name>sans</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
+      <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
+      <name>sans</name>
+      <size>9</size>
+      <!-- font size in points -->
+      <weight>bold</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>normal</slant>
+      <!-- 'italic' or 'normal' -->
+    </font>
+    <font place="MenuHeader">
+      <name>sans</name>
+      <size>11</size>
+      <!-- font size in points -->
+      <weight>normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>normal</slant>
+      <!-- 'italic' or 'normal' -->
+    </font>
+    <font place="MenuItem">
+      <name>sans</name>
+      <size>10</size>
+      <!-- font size in points -->
+      <weight>normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>normal</slant>
+      <!-- 'italic' or 'normal' -->
+    </font>
+    <font place="ActiveOnScreenDisplay">
       <name>Sans</name>
-      <size>8</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
-    <font place="MenuHeader">
-      <name>Droid Serif</name>
-      <size>11</size>
-      <!-- font size in points -->
-      <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
-    </font>
-    <font place="MenuItem">
-      <name>Droid Serif</name>
-      <size>11</size>
-      <!-- font size in points -->
-      <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
-    </font>
-    <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
-    </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
+      <name>Sans</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
@@ -159,19 +159,19 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>Bottom</position>
+    <position>TopLeft</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
-    <noStrut>yes</noStrut>
+    <noStrut>no</noStrut>
     <stacking>Above</stacking>
     <!-- 'Above', 'Normal', or 'Below' -->
     <direction>Vertical</direction>
     <!-- 'Vertical' or 'Horizontal' -->
-    <autoHide>yes</autoHide>
-    <hideDelay>400</hideDelay>
+    <autoHide>no</autoHide>
+    <hideDelay>300</hideDelay>
     <!-- in milliseconds (1000 = 1 second) -->
-    <showDelay>420</showDelay>
+    <showDelay>300</showDelay>
     <!-- in milliseconds (1000 = 1 second) -->
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
@@ -251,16 +251,6 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Custom Keybinds -->
-    <keybind key="W-r">
-      <action name="Execute">
-        <command>openbox --reconfigure</command>
-      </action>
-    </keybind>
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot /home/andrew/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png</command>
-      </action>
-    </keybind>
     <keybind key="W-F1">
       <action name="Execute">
         <command>oblogout</command>
@@ -268,7 +258,7 @@
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-        <command>sh -c 'slock &amp; (sleep .5 &amp;&amp; xset dpms force off)'</command>
+        <command>sh -c '/usr/bin/i3lock-fancy'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
@@ -296,19 +286,19 @@
         <command>scrot /home/andrew/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png</command>
       </action>
     </keybind>
-    <keybind key="W-F1">
-      <action name="Execute">
-        <command>oblogout</command>
-      </action>
-    </keybind>
-    <keybind key="W-l">
-      <action name="Execute">
-        <command>sh -c 'slock &amp; (sleep .5 &amp;&amp; xset dpms force off)'</command>
-      </action>
-    </keybind>
     <keybind key="S-W-t">
       <action name="Execute">
         <command>urxvt</command>
+      </action>
+    </keybind>
+    <keybind key="W-Escape">
+      <action name="ShowMenu">
+       <menu>root-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="S-W-f">
+      <action name="Execute">
+        <command>pcmanfm</command>
       </action>
     </keybind>
     <keybind key="S-W-w">
@@ -331,6 +321,12 @@
         <width>50%</width>
       </action>
       <action name="MoveToEdgeEast"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="Unmaximize"/>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="Maximize"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">

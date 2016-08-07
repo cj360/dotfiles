@@ -16,17 +16,14 @@
 #
 #xfce-mcs-manager &
 
-nm-applet &
 numlockx &
-xrdb .Xresources &
-# Launch Xcomppmgr and tint2 with openbox
-if which tint2 >/dev/null 2>&1; then
-  (sleep 2 && xcompmgr) &
-  (sleep 2 && tint2) &
-fi
+nm-applet &
+xrdb ~/.Xresources &
+tint2 &
+sh ~/.wallpapers/wp_init.sh &
 redshift-gtk &
-bash ~/.wallpapers/wp_init.sh &
-volumeicon &
-conky &
 xautolock -time 60 -locker '/usr/bin/i3lock-fancy' -detectsleep -corners 0-+0 &
 caffeine &
+pasystray &
+conky &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
