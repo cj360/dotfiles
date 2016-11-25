@@ -1,46 +1,23 @@
-mpd_music_dir = "~/Music/"
-mpd_crossfade_time = 3
-#playlist_disable_highlight_delay = "3"
-jump_to_now_playing_song_at_start = yes
-allow_for_physical_item_deletion = yes
-regular_expressions = "extended"
-progressbar_look = ━╾─
-playlist_display_mode = classic
-#colors_enabled = yes
-#progressbar_boldness = yes
-mouse_list_scroll_whole_page = no
-lines_scrolled = "1"
-song_status_format = "{%a – %t}|{%f}"
-now_playing_prefix = "       "
-#color1
-#color2
-browser_display_mode = columns
-search_engine_display_mode = columns
-playlist_editor_display_mode = columns
-statusbar_visibility = yes
-
-selected_item_prefix = "+ "
-centered_cursor = yes
-space_add_mode = add_remove
-autocenter_mode = yes
-# Doesn’t work
-#display_screens_numbers_on_start = "yes"
-#user_interface = alternative
-
-header_window_color = default
-#volume_color = magenta
-state_line_color = blue
-#state_flags_color = blue
-main_window_color = green
-main_window_highlight_color = blue
-progressbar_color = blue
-progressbar_elapsed_color = blue
-#statusbar_color = magenta
-
-visualizer_output_name = "FIFO"
-visualizer_in_stereo = "yes"
 visualizer_fifo_path = "/tmp/mpd.fifo"
-#visualizer_sync_interval = "1"
-visualizer_type = "spectrum" (spectrum/wave)
-#visualizer_type = "wave" (spectrum/wave)
-visualizer_look = "+|"
+visualizer_output_name = "fifo"
+visualizer_sync_interval = "30"
+visualizer_type = "spectrum"
+visualizer_look = "_-"
+message_delay_time = "3"
+playlist_shorten_total_times = "yes"
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+user_interface = "alternative"
+follow_now_playing_lyrics = "yes"
+locked_screen_width_part = "60"
+display_bitrate = "yes"
+external_editor = "nano"
+use_console_editor = "yes"
+mouse_list_scroll_whole_page = "yes"
+lines_scrolled = "1"
+enable_window_title = "yes"
+song_columns_list_format = "(25)[cyan]{a} (40)[]{f} (30)[red]{b} (7f)[green]{l}"
