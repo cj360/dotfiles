@@ -1,14 +1,27 @@
-! URXVT FONTS
-!------------------------------------------------
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #2f1e2e, argb:369c4eb0, argb:2fef5555
+rofi.color-normal: argb:a02f1e2e, #b4b4b4, argb:a02f1e2e, argb:54815ba4, #ffffff
+rofi.color-active: argb:272f1e2e, #815ba4, argb:2f2f1e2e, argb:54815ba4, #815ba4
+rofi.color-urgent: argb:272f1e2e, #ee5345, argb:2f2f1e2e, argb:54815ba4, #ef6155
 
-URxvt.font: xft:bitstream vera sans mono:size=13:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=13:antialias=true
+! Urxvt Icon
+! ------------------------------------------------------------------------------
+URxvt.iconFile:    /usr/share/icons/Papirus-GTK/32x32/apps/xterm.svg
+
+! URXVT FONTS
+! ------------------------------------------------------------------------------
+
+URxvt.font: xft:Hack:size=14:antialias=true
+URxvt.boldFont: xft:Hack:bold:size=14:antialias=true
 URxvt*letterSpace: -1
 URxvt*allow_bold: true
 !URxvt.geometry: 194x39
 
 ! URXVT ENABLE LINK SUPPORT
-!------------------------------------------------
+! ------------------------------------------------------------------------------
 
 URxvt.perl-ext-common: default,matcher,tabbed,vtwheel,clipboard
 URxvt.matcher.button:   1
@@ -21,14 +34,14 @@ URxvt.url-select.underline: true
 URxvt.insecure: 			false
 
 ! URXVT COPY PASTE SHORTCUTS
-!------------------------------------------------
+! ------------------------------------------------------------------------------
 
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! URXVT SCROLLBAR AND CURSOR STYLE
-!------------------------------------------------
+! ------------------------------------------------------------------------------
 
 URxvt*saveLines: 			300000
 URxvt.scrollBar: 			false
@@ -38,7 +51,7 @@ URxvt*cursorUnderline: 		true
 URxvt*cursorColor: 			#98d467
 
 ! URXVT TABS
-!------------------------------------------------
+! ------------------------------------------------------------------------------
 
 URxvt.tabbedex.autohide: 	yes
 URxvt.tabbedex.tabbar-fg: 	2
@@ -49,47 +62,46 @@ URxvt.tabbedex.title: 		yes
 URxvt.tabbedex.new-button:  no
 
 ! URXVT FULLSCREEN TOGGLE
-!------------------------------------------------
+! ------------------------------------------------------------------------------
 
 URxvt.keysym.F11: 			perl:fullscreen:switch
 
 ! URXVT COLORS
-!------------------------------------------------
+! ------------------------------------------------------------------------------
 
 ! special
 *.foreground:   #ffffff
-*.background:   #000000
+*.background:   #292929
 *.cursorColor:  #ffffff
 
 ! black
-*.color0:       #0d0a20
-*.color8:       #206680
+*.color0:       #120f20
+*.color8:       #9d97c0
 
 ! red
-*.color1:       #4b3da0
-*.color9:       #5f89c8
+*.color1:       #5c4ca0
+*.color9:       #aea0d8
 
 ! green
-*.color2:       #4f48a0
-*.color10:      #499fc8
+*.color2:       #5b4ba0
+*.color10:      #babfc8
 
 ! yellow
-*.color3:       #5050a0
-*.color11:      #916cc8
+*.color3:       #5c4da0
+*.color11:      #b2a4dc
 
 ! blue
-*.color4:       #5551a0
-*.color12:      #36bdc8
+*.color4:       #6e65a0
+*.color12:      #b3a6e0
 
 ! magenta
-*.color5:       #3668a0
-*.color13:      #c04bc8
+*.color5:       #8684a0
+*.color13:      #c1c6d0
 
 ! cyan
-*.color6:       #555ea0
-*.color14:      #21c8b3
+*.color6:       #928abb
+*.color14:      #d5dfe0
 
 ! white
-*.color7:       #6c3ca0
-*.color15:      #7eafc8
-
+*.color7:       #9ea3a4
+*.color15:      #d5dfe0
