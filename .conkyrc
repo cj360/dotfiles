@@ -1,81 +1,41 @@
-background yes
-use_xft yes
-xftfont Sans:size=10
-xftalpha 1
-update_interval 1.0
-top_cpu_separate true
-total_run_times 0
-own_window no 
-own_window_argb_visual true
-own_window_argb_value 0
-#own_window_colour
-own_window_transparent yes
-own_window_type desktop
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#avoid flicker
 double_buffer yes
-minimum_size 200 200
-maximum_width 200
-max_text_width 0
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+own_window_transparent no
+own_window_type override
+own_window_hints sticky,skip_taskbar,skip_pager
+
+#shades
 draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders yes
-default_color C04BC8
-default_shade_color black
-default_outline_color black
-alignment tr
-gap_x 10
-gap_y 35
-no_buffers yes
-uppercase no
-cpu_avg_samples 2
-override_utf8_locale no
+
+#position
+gap_x 0
+gap_y 4
+alignment bottom_middle
+
+#behaviour
+update_interval 1
+
+#colour
+default_color 757575
+#default_shade_color 000000
+own_window_colour 303030
+#font
+use_xft yes
+xftfont Terminus:size=13
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#to prevent window from moving
+use_spacer none
+minimum_size 1920 0
+
+#mpd
+#mpd_host localhost
+#mpd_port 6600
 
 TEXT
-${font sans-serif:bold:size=10}SYSTEM ${hr 2}
-${font sans-serif:normal:size=10}$sysname $kernel $alignr $machine
-Host:$alignr$nodename
-Uptime:$alignr$uptime
-File System: $alignr${fs_type}
-
-${font sans-serif:bold:size=10}PROCESSORS ${hr 2}
-#${font sans-serif:normal:size=10}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' | grep 'CPU       ' | sed -e 's/CPU       . //' | tail -n 1}
-Intel i5-4690K: $freq MHz
-${font sans-serif:normal:size=10}${cpugraph cpu1}
-CPU0: ${cpu cpu0}% ${cpubar cpu0}
-CPU1: ${cpu cpu1}% ${cpubar cpu1}
-CPU2: ${cpu cpu2}% ${cpubar cpu2}
-CPU3: ${cpu cpu3}% ${cpubar cpu3}
-
-#GPU Usage: $alignr ${nvidia gpufreq} %
-#${execgraph nvidia memfreq}
-#GPU VRAM: $alignr ${exec nvidia-smi | grep % | cut -c 37-40}MB
-
-${font sans-serif:bold:size=10}MEMORY ${hr 2}
-${font sans-serif:normal:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
-$membar
-
-${font sans-serif:bold:size=10}DISKS ${hr 2}
-${font sans-serif:normal:size=10}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
-${fs_bar /}
-
-${font sans-serif:bold:size=10}TOP PROCESSES ${hr 2}
-${font sans-serif:normal:size=10}${top_mem name 1}${alignr}${top mem 1} %
-${top_mem name 2}${alignr}${top mem 2} %
-$font${top_mem name 3}${alignr}${top mem 3} %
-$font${top_mem name 4}${alignr}${top mem 4} %
-$font${top_mem name 5}${alignr}${top mem 5} %
-
-${font sans-serif:bold:size=10}ETHERNET ${hr 2}
-${font sans-serif:normal:size=10}IP address: $alignr ${addr enp3s0}
-${downspeedgraph enp3s0}
-DLS:${downspeed enp3s0} kb/s $alignr total: ${totaldown enp3s0}
-${upspeedgraph enp3s0}
-ULS:${upspeed enp3s0} kb/s $alignr total: ${totalup enp3s0}
-
-${font sans-serif:bold:size=10}WIFI ${hr 2}
-${font sans-serif:normal:size=10}IP address: $alignr ${addr wlp4s0}
-${downspeedgraph wlp4s0}
-DLS:${downspeed wlp4s0} kb/s $alignr total: ${totaldown wlp4s0}
-${upspeedgraph wlp4s0}
-ULS:${upspeed wlp4s0} kb/s $alignr total: ${totalup wlp4s0}
+${alignc} ${color C04BC8}Cpu:${color} ${color white}${cpu}%${color}  ${color C04BC8}Ram: ${color white}${memperc}%${color}  ${color C04BC8}Disk: ${color white}${fs_used_perc /}%${color}  ${color C04BC8}Nvidia:${color} ${color white}${hwmon temp 1}°C${color}  ${color C04BC8}Cpu:${color white} ${acpitemp}°C${color}${alignc}
