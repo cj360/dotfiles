@@ -6,9 +6,6 @@
 margin-top = 5
 margin-bottom = 5
 
-; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
-screenchange-reload = false
-
 [bar/polybar]
 ;monitor = ${env:MONITOR:HDMI-1}
 dock = false
@@ -102,14 +99,14 @@ toggle-off-foreground = #66
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = %{F#666}%{F#cc} %percentage%
+label = %{F#666}%{F#cc} %percentage%
 label-underline = #f90000
 
 
 [module/memory]
 type = internal/memory
 interval = 2
-label = %{F#665}%{F#cc} %percentage_used%
+label = %percentage_used%
 label-underline = #4bffdc
 
 
