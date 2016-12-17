@@ -31,7 +31,7 @@ module-margin-right = 1
 module-margin-left = 0
 
 
-modules-left = i3 cpu memory
+modules-left = i3 cpu gput memory
 ;wlan eth
 modules-center = mpd volume
 modules-right = updates filesystem date menu0
@@ -48,10 +48,10 @@ tray-offset-x =
 tray-maxsize =
 tray-padding =
 
-font-0 = terminus:size=11;0
-font-1 = FontAwesome:size=11;0
-font-2 = Hack:weight=bold:size=11;0
-font-3 = FontAwesome:size=11;0
+font-0 = Hack:weight=bold:size=12;0
+font-1 = FontAwesome:size=12;0
+;font-2 = terminus:size=12;0
+;font-3 = FontAwesome:size=12;0
 
 [module/xwindow]
 type = internal/xwindow
@@ -162,6 +162,24 @@ icon-repeat = R
 toggle-on-foreground = #e60053
 toggle-off-foreground = #66
 
+[module/gput]
+type = custom/script
+label = %{F${colors.white}  %output%C %{F-}
+label-underline = ${colors.white}
+label-foreground = ${colors.white}
+
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/usr/bin/env sh -c [command]")
+exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+
+; Will the script output continous content?
+; Default: false
+; tail = true
+
+; Seconds to sleep between updates
+; Default: 2 (0 if `tail = true`)
+interval = 90
 
 [module/cpu]
 format-label = internal/cpu
@@ -301,7 +319,6 @@ menu-0-1 =  restart
 menu-0-1-exec = shutdown -r now
 menu-0-2 =   cancel
 
-
 label-open =  
 label-close =
 
@@ -309,7 +326,6 @@ label-close =
 type = custom/script
 
 exec = echo
-
 
 [module/powermenu]
 type = custom/menu
