@@ -1,43 +1,71 @@
 [options]
-font = Terminus 12
-cursor_shape = ibeam
+font = Bitstream Vera Sans Mono 12
+icon_name = terminal
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = true
+visible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+scrollback_lines = 1000
+search_wrap = true
+#icon_name = terminal
+#geometry = 450x265
+
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = underline
+
+# vte-256color has the correct terminfo, but some applications (vim, weechat)
+# still need patches for mouse/title support
+term = screen-256color
+
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
 
 [colors]
 
 # special
-foreground      = #7ea2b4
-foreground_bold = #7ea2b4
-cursor          = #7ea2b4
-background      = #000000
+foreground      = #9b29e9
+foreground_bold = #9b29e9
+cursor          = #9b29e9
+background      = #252326
 
 # black
-color0  = #000000
-color8  = #5a7b8c
+color0  = #67606f
+color8  = #586270
 
 # red
-color1  = #006e75
-color9  = #5a1c80
+color1  = #5b4ba0
+color9  = #aea0d8
 
 # green
-color2  = #11ae9a
-color10 = #1f292e
+color2  = #8684a0
+color10 = #4e596b
 
 # yellow
-color3  = #0f8048
-color11 = #516d7b
+color3  = #9ea3a4
+color11 = #383e47
 
 # blue
-color4  = #257fad
-color12 = #7195a8
+color4  = #6857b5
+color12 = #798494
 
 # magenta
-color5  = #5d5db1
-color13 = #c1e4f6
+color5  = #b59cd8
+color13 = #d8d8d8
 
 # cyan
-color6  = #2d8f6f
-color14 = #b72dd2
+color6  = #8dc9c3
+color14 = #9ea3a4
 
 # white
-color7  = #7ea2b4
-color15 = #7dc9f2
+color7  = #f4eed1
+color15 = #f4eed1

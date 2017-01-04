@@ -5,7 +5,14 @@
 # --------------------------------------------------------------------------- #
 # Using Win key as modifier
 set $Mod  Mod4
+set $Term termite
 set $Menu rofi -show run
+#set $SSH  rofi -show ssh
+set $Scripts   ~/.config/scripts
+# Gaps modifiers
+set $IGap 10
+set $EGap 10
+set $Exit exit
 # Workspaces
 set $Workspace1  1
 set $Workspace2  2
@@ -21,43 +28,31 @@ set $Workspace10 10
 font pango:Hack 16
 # Use Mouse+$Mod to drag floating windows to their wanted position
 floating_Modifier $Mod
+# First bindings, vital
+bindsym $Mod+p       exec $Menu
+#bindsym $Mod+Shift+p exec $SSH
+bindsym $Mod+Shift+q kill
+bindsym $Mod+Return  exec $Term
 # -----------------------------------------------------------------------------
 # Media keys
 # -----------------------------------------------------------------------------
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # Media player controls
-bindsym XF86AudioPlay  exec mpc play
-bindsym XF86AudioPause exec mpc pause
-bindsym XF86AudioStop  exec mpc stop
-bindsym XF86AudioNext  exec mpc next
-bindsym XF86AudioPrev  exec mpc previous
+bindsym XF86AudioPlay  exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
 # Print key
 bindsym Print      exec scrot
 bindsym $mod+Print exec scrot -s
-
 # -----------------------------------------------------------------------------
-# Extra keys
-# -----------------------------------------------------------------------------
-bindsym $Mod+p       exec $Menu
-bindsym $Mod+Shift+q kill
-# Set Term with termite & it's keybind
-set $Term termite
-bindsym $Mod+t exec $Term
-# Keybind to lock screen
-bindsym $Mod+l exec /usr/bin/i3lock-fancy
-# Chromium
-bindsym $mod+shift+w exec chromium
-# Pcmanfm
-bindsym $mod+shift+f exec pcmanfm
-
-# -----------------------------------------------------------------------------
-# i3 window keybinds
+# Real shit here
 # -----------------------------------------------------------------------------
 # Focus changing
 bindsym $Mod+Left  focus left
@@ -113,7 +108,6 @@ bindsym $Mod+Shift+c reload
 # Restart i3 (preserving layout)
 bindsym $Mod+Shift+r restart
 # Exit i3
-set $Exit exit
 bindsym $Mod+Shift+Escape $Exit
 # Mode resize
 Mode "resize" {
@@ -126,61 +120,26 @@ Mode "resize" {
         bindsym Escape Mode "default"
 }
 bindsym $Mod+r Mode "resize"
-
 # -----------------------------------------------------------------------------
 # Windows configuration
 # -----------------------------------------------------------------------------
 # No titlebars, NO!
-for_window [class="^.*"] border pixel 5
-for_window [class="MadMax"] floating enable
-
+for_window [class="^.*"] border pixel 3
 # Gaps
-gaps inner 5
-gaps outer 5
-
-# Window Borders
-# Client Class              <border>    <background>    <text>      <indicator>     <child_border>
-client.focused              #5e4eba     #1a003f         #a4e1c3     #1a003f         #5e4eba
-client.focused_inactive     #5e4eba     #1a003f         #a4e1c3     #1a003f         #5e4eba
-client.unfocused            #5e4eba     #1a003f         #a4e1c3     #1a003f         #5e4eba
-client.urgent               #970ebe     #970ebe         #a4e1c3     #970ebe         #970ebe
-client.placeholder          #000000     #1a003f         #a4e1c3     #000000         #1a003f
-client.background           #1a003f
-
+gaps inner $IGap
+gaps outer $EGap
 # -----------------------------------------------------------------------------
 # Execution after parsing/setting up
 # -----------------------------------------------------------------------------
 # Wallpaper
-exec --no-startup-id feh --bg-fill /home/andrew/Pictures/purple_space.jpg
-
+exec --no-startup-id sh ~/.wallpapers/wp_init.sh
 # Compositor
-#exec --no-startup-id compton --config ~/.config/compton/config -b
-
-# Redshift
-exec --no-startup-id redshift-gtk
-
+exec --no-startup-id compton --config ~/.config/compton/config -b
 # NetworkManager applet
 exec --no-startup-id nm-applet
-
 # Load Xresources
 exec --no-startup-id xrdb ~/.Xresources
-
-# Enable numlock at logon
-exec --no-startup-id numlockx
-
-# Caffine
-exec --no-startup-id caffeine
-
-# Authentication demon
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
+# PCManFM daemon (for automounting)
+#exec --no-startup-id pcmanfm -d
 # Bar
-exec --no-startup-id ~/.config/polybar/launch.sh
-
-# Autolock
-exec --no-startup-id xautolock -time 120 -locker '/usr/bin/i3lock-fancy' -detectsleep -corners 0-+0
-
-# Start mpd
-exec --no-startup-id mpd
-
-exec --no-startup-id unclutter
+exec --no-startup-id ~/.config/lemonbuddy/launch.sh

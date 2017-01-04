@@ -31,8 +31,8 @@ module-margin-right = 1
 module-margin-left = 0
 
 
-modules-left = i3 cpu gput memory
-;wlan eth
+modules-left = i3 temperature gput memory
+;cpu wlan eth
 modules-center = mpd volume
 modules-right = updates filesystem date menu0
 
@@ -42,11 +42,10 @@ foreground = ${colors.white}
 underline-size = 2
 underline-color = ${colors.white}
 
-tray-detached = false
 tray-position = right
-tray-offset-x =
-tray-maxsize =
-tray-padding =
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
 
 font-0 = Hack:weight=bold:size=12;0
 font-1 = FontAwesome:size=12;0
@@ -164,7 +163,7 @@ toggle-off-foreground = #66
 
 [module/gput]
 type = custom/script
-label = %{F${colors.white}  %output%C %{F-}
+label = %{F${colors.white}  %output%C %{F-}
 label-underline = ${colors.white}
 label-foreground = ${colors.white}
 

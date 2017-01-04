@@ -32,7 +32,6 @@ Section "Monitor"
     # HorizSync source: edid, VertRefresh source: edid
     Identifier     "Monitor0"
     VendorName     "Unknown"
-    ModelName      "LG Electronics LG IPS FULLHD"
     HorizSync       30.0 - 83.0
     VertRefresh     56.0 - 75.0
     Option         "DPMS"
@@ -42,7 +41,8 @@ Section "Device"
     Identifier     "Device0"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
-    BoardName      "GeForce GTX 960"
+    BoardName      "GeForce GTX 1060"
+    Option         "Coolbits" "24"
 EndSection
 
 Section "Screen"
@@ -51,10 +51,12 @@ Section "Screen"
     Monitor        "Monitor0"
     DefaultDepth    24
     Option         "Stereo" "0"
-    Option         "metamodes" "HDMI-0: 1920x1080_60 +0+0"
+    #Option         "metamodes" "HDMI-0: nvidia-auto-select +0+0"
     Option         "SLI" "Off"
+    Option         "AllowIndirectGLXProtocol" "off"
+    Option         "TripleBuffer" "on"
     Option         "MultiGPU" "Off"
-    Option         "BaseMosaic" "off"
+    #Option         "BaseMosaic" "off"
     SubSection     "Display"
         Depth       24
     EndSubSection

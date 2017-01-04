@@ -57,55 +57,55 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>sans</name>
-      <size>10</size>
+      <name>Estrangelo Edessa</name>
+      <size>11</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>sans</name>
-      <size>9</size>
+      <name>Estrangelo Edessa</name>
+      <size>11</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
-      <size>11</size>
+      <name>Estrangelo Edessa</name>
+      <size>12</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>sans</name>
-      <size>10</size>
+      <name>Estrangelo Edessa</name>
+      <size>11</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Sans</name>
-      <size>10</size>
+      <name>Estrangelo Edessa</name>
+      <size>11</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Sans</name>
-      <size>10</size>
+      <name>Estrangelo Edessa</name>
+      <size>11</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -251,11 +251,6 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Custom Keybinds -->
-    <keybind key="W-F1">
-      <action name="Execute">
-        <command>oblogout</command>
-      </action>
-    </keybind>
     <keybind key="W-l">
       <action name="Execute">
         <command>sh -c '/usr/bin/i3lock-fancy'</command>
@@ -263,17 +258,17 @@
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>pactl set-sink-mute 0 toggle</command>
+        <command>pulseaudio-ctl mute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>sh -c "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 -5%"</command>
+        <command>pulseaudio-ctl down</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"</command>
+        <command>pulseaudio-ctl up</command>
       </action>
     </keybind>
     <keybind key="W-r">
@@ -288,22 +283,22 @@
     </keybind>
     <keybind key="S-W-t">
       <action name="Execute">
-        <command>urxvt</command>
+        <command>termite</command>
       </action>
     </keybind>
-    <keybind key="W-Escape">
+    <keybind key="W-q">
       <action name="ShowMenu">
-       <menu>root-menu</menu>
+        <menu>root-menu</menu>
       </action>
     </keybind>
     <keybind key="S-W-f">
       <action name="Execute">
-        <command>pcmanfm</command>
+        <command>thunar</command>
       </action>
     </keybind>
     <keybind key="S-W-w">
       <action name="Execute">
-        <command>/opt/google/chrome/google-chrome</command>
+        <command>chromium</command>
       </action>
     </keybind>
     <keybind key="W-Left">
@@ -792,7 +787,7 @@
   # order that they appear in this list
 
 
-    # each rule element can be left out or set to 'default' to specify to not 
+    # each rule element can be left out or set to 'default' to specify to not
     # change that attribute of the window
 
     <decor>yes</decor>
