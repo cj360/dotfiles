@@ -55,6 +55,8 @@ bindsym $Mod+l exec /usr/bin/i3lock-fancy
 bindsym $mod+shift+w exec chromium
 # Pcmanfm
 bindsym $mod+shift+f exec pcmanfm
+# Keepassx2
+bindsym $mod+shift+s exec keepassx2
 
 # -----------------------------------------------------------------------------
 # i3 window keybinds
@@ -177,10 +179,11 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Bar
 exec --no-startup-id ~/.config/polybar/launch.sh
 
+#Fan Script for Gpu
+exec --no-startup-id ~/nvidia_fanspeed.sh
+
 # Autolock
 exec --no-startup-id xautolock -time 120 -locker '/usr/bin/i3lock-fancy' -detectsleep -corners 0-+0
 
 # Start mpd
 exec --no-startup-id mpd
-
-exec --no-startup-id unclutter
