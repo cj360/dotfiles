@@ -51,8 +51,8 @@ set $Term termite
 bindsym $Mod+t exec $Term
 # Keybind to lock screen
 bindsym $Mod+l exec /usr/bin/i3lock-fancy
-# Chromium
-bindsym $mod+shift+w exec chromium
+# Firefox
+bindsym $mod+shift+w exec firefox
 # Pcmanfm
 bindsym $mod+shift+f exec pcmanfm
 # Keepassx2
