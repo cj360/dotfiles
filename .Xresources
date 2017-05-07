@@ -1,107 +1,49 @@
 ! ------------------------------------------------------------------------------
+! URxvt settings
+! ------------------------------------------------------------------------------
+
+Xft.dpi:                 96
+Xft.antialias:           true
+Xft.hinting:             true
+Xft.rgba:                rgb
+Xft.autohint:            false
+Xft.hintstyle:           hintslight
+Xft.lcdfilter:           lcddefault
+
+URxvt*font:              xft:Hack:size=12,xft:FontAwesome:style=Regular,xft:unifont
+URxvt*boldFont:          xft:Hack:size=12
+URxvt.iconFile:          /usr/share/icons/Papirus-GTK/32x32/apps/xterm.svg
+URxvt.insecure:          false
+URxvt*loginShell:        true
+URxvt*cursorUnderline:   true
+URxvt*scrollBar:         false 
+URxvt*letterSpace:       -1
+URxvt*termName:          rxvt
+URxvt.buffered:          true
+URxvt.matcher.button:    1 
+URxvt.transparent:       false
+URxvt.shading:           5
+URxvt*iso14755:          false
+rxvt.saveLines:          900000
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
+
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+!URxvt.keysym.M-u:           perl:url-select:select_next
+!URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+!URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+
+
+! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #2f1e2e, argb:369c4eb0, argb:2fef5555
-rofi.color-normal: argb:a02f1e2e, #b4b4b4, argb:a02f1e2e, argb:54815ba4, #ffffff
-rofi.color-active: argb:272f1e2e, #815ba4, argb:2f2f1e2e, argb:54815ba4, #815ba4
-rofi.color-urgent: argb:272f1e2e, #ee5345, argb:2f2f1e2e, argb:54815ba4, #ef6155
-
-! Urxvt Icon
-! ------------------------------------------------------------------------------
-URxvt.iconFile:    /usr/share/icons/Papirus-GTK/32x32/apps/xterm.svg
-
-! URXVT FONTS
-! ------------------------------------------------------------------------------
-
-URxvt.font: xft:Hack:size=14:antialias=true
-URxvt.boldFont: xft:Hack:bold:size=14:antialias=true
-URxvt*letterSpace: -1
-URxvt*allow_bold: true
-!URxvt.geometry: 194x39
-
-! URXVT ENABLE LINK SUPPORT
-! ------------------------------------------------------------------------------
-
-URxvt.perl-ext-common: default,matcher,tabbed,vtwheel,clipboard
-URxvt.matcher.button:   1
-URxvt.perl-ext: default,url-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/google-chrome-stable
-URxvt.url-select.underline: true
-
-!disable the fucking bell
-URxvt.insecure: 			false
-
-! URXVT COPY PASTE SHORTCUTS
-! ------------------------------------------------------------------------------
-
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-
-! URXVT SCROLLBAR AND CURSOR STYLE
-! ------------------------------------------------------------------------------
-
-URxvt*saveLines: 			300000
-URxvt.scrollBar: 			false
-!URxvt*scrollstyle:			plain
-URxvt*cursorBlink: 			false
-URxvt*cursorUnderline: 		true
-URxvt*cursorColor: 			#98d467
-
-! URXVT TABS
-! ------------------------------------------------------------------------------
-
-URxvt.tabbedex.autohide: 	yes
-URxvt.tabbedex.tabbar-fg: 	2
-URxvt.tabbedex.tabbar-bg: 	0
-URxvt.tabbedex.tab-fg:    	10
-URxvt.tabbedex.tab-bg:    	0
-URxvt.tabbedex.title: 		yes
-URxvt.tabbedex.new-button:  no
-
-! URXVT FULLSCREEN TOGGLE
-! ------------------------------------------------------------------------------
-
-URxvt.keysym.F11: 			perl:fullscreen:switch
-
-! URXVT COLORS
-! ------------------------------------------------------------------------------
-
-! special
-*.foreground:   #ffffff
-*.background:   #292929
-*.cursorColor:  #ffffff
-
-! black
-*.color0:       #120f20
-*.color8:       #9d97c0
-
-! red
-*.color1:       #5c4ca0
-*.color9:       #aea0d8
-
-! green
-*.color2:       #5b4ba0
-*.color10:      #babfc8
-
-! yellow
-*.color3:       #5c4da0
-*.color11:      #b2a4dc
-
-! blue
-*.color4:       #6e65a0
-*.color12:      #b3a6e0
-
-! magenta
-*.color5:       #8684a0
-*.color13:      #c1c6d0
-
-! cyan
-*.color6:       #928abb
-*.color14:      #d5dfe0
-
-! white
-*.color7:       #9ea3a4
-*.color15:      #d5dfe0
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844

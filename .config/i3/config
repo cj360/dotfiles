@@ -35,6 +35,7 @@ set_from_resource $bg i3wm.color0 #1F2D3A
 # No titlebars, NO!
 for_window [class="^.*"] border pixel 5
 for_window [class="MadMax"] floating enable
+for_window [class="Transistor"] floating enable
 
 # Gaps
 gaps inner 5
@@ -53,27 +54,27 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 #smart_gaps on
 
 #startup execs
-#exec --no-startup-id feh --bg-fill /home/andrew/Pictures/early-morning-green_2560x1440.jpg
-exec --no-startup-id xautolock -time 120 -locker '/usr/bin/i3lock-fancy' -detectsleep -corners 0-+0
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /home/andrew/.config/polybar/launch.sh
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
-#exec --no-startup-id /home/andrew/nvidia_fanspeed.sh
-exec --no-startup-id xrdb /home/andrew/.Xresources
-exec --no-startup-id redshift-gtk
-exec --no-startup-id nm-applet
-exec --no-startup-id compton
-exec --no-startup-id numlockx
-exec --no-startup-id caffeine
-exec --no-startup-id mpd
+#exec --no-startup-id  feh --bg-fill /home/andrew/Pictures/early-morning-green_2560x1440.jpg
+#exec --no-startup-id   xautolock -time 120 -locker '/usr/bin/i3lock-fancy' -detectsleep -corners 0-+0
+exec --no-startup-id   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id   wal -i "$(< "${HOME}/.cache/wal/wal")"
+exec --no-startup-id   /home/andrew/.config/polybar/launch.sh
+#exec --no-startup-id  /home/andrew/nvidia_fanspeed.sh
+exec --no-startup-id   xrdb /home/andrew/.Xresources
+exec --no-startup-id   redshift-gtk
+exec --no-startup-id   nm-applet
+exec --no-startup-id   compton
+exec --no-startup-id   numlockx
+exec --no-startup-id   caffeine
+exec --no-startup-id   mpd
 
 #special binds
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 set                           $Menu rofi -show run
-bindsym Control+Shift+d       exec $Menu
-bindsym Control+Shift+l               exec /usr/bin/i3lock-fancy
+bindsym $mod+Shift+d          exec $Menu
+bindsym Control+Shift+l       exec /usr/bin/i3lock-fancy
 bindsym $mod+shift+w          exec firefox
 bindsym $mod+shift+f          exec Thunar
 bindsym $mod+shift+s          exec keepassx2
@@ -84,7 +85,7 @@ bindsym XF86AudioPause        exec mpc pause
 bindsym XF86AudioStop         exec mpc stop
 bindsym XF86AudioNext         exec mpc next
 bindsym XF86AudioPrev         exec mpc previous
-bindsym $Mod+t                exec termite
+bindsym $Mod+t                exec urxvt
 bindsym Print                 exec scrot
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -182,7 +183,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+E exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

@@ -11,7 +11,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-scrollback_lines = 1000
+scrollback_lines = 7000
 search_wrap = true
 #icon_name = terminal
 #geometry = 450x265
@@ -29,43 +29,42 @@ term = screen-256color
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
 
-
 [colors]
 
 # special
-foreground      = #9b29e9
-foreground_bold = #9b29e9
-cursor          = #9b29e9
-background      = #252326
+foreground      = #e3f7a2
+foreground_bold = #e3f7a2
+cursor          = #e3f7a2
+background      = #262c35
 
 # black
-color0  = #67606f
-color8  = #586270
+color0  = #1d2935
+color8  = #666666
 
 # red
-color1  = #5b4ba0
-color9  = #aea0d8
+color1  = #48574c
+color9  = #48574c
 
 # green
-color2  = #8684a0
-color10 = #4e596b
+color2  = #4f6c50
+color10 = #4f6c50
 
 # yellow
-color3  = #9ea3a4
-color11 = #383e47
+color3  = #68765e
+color11 = #68765e
 
 # blue
-color4  = #6857b5
-color12 = #798494
+color4  = #6a8c5f
+color12 = #6a8c5f
 
 # magenta
-color5  = #b59cd8
-color13 = #d8d8d8
+color5  = #5da35a
+color13 = #5da35a
 
 # cyan
-color6  = #8dc9c3
-color14 = #9ea3a4
+color6  = #95af6e
+color14 = #95af6e
 
 # white
-color7  = #f4eed1
-color15 = #f4eed1
+color7  = #c3d48c
+color15 = #c3d48c
