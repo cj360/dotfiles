@@ -85,7 +85,7 @@ bindsym XF86AudioPause        exec mpc pause
 bindsym XF86AudioStop         exec mpc stop
 bindsym XF86AudioNext         exec mpc next
 bindsym XF86AudioPrev         exec mpc previous
-bindsym $Mod+t                exec urxvt
+bindsym $Mod+t                exec termite
 bindsym Print                 exec scrot
 
 # Use Mouse+$mod to drag floating windows to their wanted position

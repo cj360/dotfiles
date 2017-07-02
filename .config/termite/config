@@ -13,7 +13,6 @@ urgent_on_bell = true
 clickable_url = true
 scrollback_lines = 7000
 search_wrap = true
-#icon_name = terminal
 #geometry = 450x265
 
 # "system", "on" or "off"
