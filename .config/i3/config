@@ -41,11 +41,6 @@ for_window [class="Transistor"] floating enable
 gaps inner 5
 gaps outer 5
 
-#client.focused  #2AA198 #00C1FF #000088 #2AA198  #2AA198
-#client.focused_inactive  #1F2D3A #2C2C2C  #ffffff #1F2D3A #1F2D3A
-#client.unfocused  #1F2D3A #2C2C2C #ffffff #1F2D3A #1F2D3A
-#client.urgent  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
-#client.placeholder  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
 client.focused          $fg     $bg     $fg  $fg       $fg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
@@ -54,12 +49,12 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 #smart_gaps on
 
 #startup execs
-#exec --no-startup-id  feh --bg-fill /home/andrew/Pictures/early-morning-green_2560x1440.jpg
 #exec --no-startup-id   xautolock -time 120 -locker '/usr/bin/i3lock-fancy' -detectsleep -corners 0-+0
 exec --no-startup-id   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id   /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id   wal -i "$(< "${HOME}/.cache/wal/wal")"
 exec --no-startup-id   /home/andrew/.config/polybar/launch.sh
-#exec --no-startup-id  /home/andrew/nvidia_fanspeed.sh
+#exec --no-startup-id   polybar Bar
 exec --no-startup-id   xrdb /home/andrew/.Xresources
 exec --no-startup-id   redshift-gtk
 exec --no-startup-id   nm-applet
