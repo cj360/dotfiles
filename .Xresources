@@ -12,7 +12,7 @@ Xft.lcdfilter:           lcddefault
 
 URxvt*font:              xft:Hack:size=12,xft:FontAwesome:style=Regular,xft:unifont
 URxvt*boldFont:          xft:Hack:size=12
-URxvt.iconFile:          /usr/share/icons/Papirus-GTK/32x32/apps/xterm.svg
+!URxvt.iconFile:          /usr/share/icons/Papirus-GTK/32x32/apps/xterm.svg
 URxvt.insecure:          false
 URxvt*loginShell:        true
 URxvt*cursorUnderline:   true
@@ -29,21 +29,20 @@ URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-URxvt.url-select.launcher:  firefox
-URxvt.url-select.underline: true
-!URxvt.keysym.M-u:           perl:url-select:select_next
-!URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-!URxvt.keysym.M-s:           perl:keyboard-select:search
-URxvt*keysym.Shift-Control-C: perl:clipboard:copy
-URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.perl-ext-common:        default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:    firefox
+URxvt.url-select.underline:   true
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+!URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+!URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+rofi.color-window: argb:FF010205, #010205, #68815E
+rofi.color-normal: argb:FF010205, #AEC19C, #010205, #68815E, #010205
+rofi.color-active: argb:FF010205, #AEC19C, #010205, #68815E, #010205
+rofi.color-urgent: argb:FF010205, #516C59, #010205, #516C59, #AEC19C
