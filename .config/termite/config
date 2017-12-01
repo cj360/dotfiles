@@ -1,4 +1,5 @@
 [options]
+#font = DejaVu Sans Mono 12
 font = Hack 12
 icon_name = terminal
 resize_grip = false
@@ -23,47 +24,7 @@ cursor_shape = ibeam
 
 # vte-256color has the correct terminfo, but some applications (vim, weechat)
 # still need patches for mouse/title support
-term = screen-256color
+#term = screen-256color
 
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
-
-[colors]
-
-# special
-foreground      = #aec19c
-foreground_bold = #aec19c
-cursor          = #aec19c
-background      = #010205
-
-# black
-color0  = #010205
-color8  = #666666
-
-# red
-color1  = #516c59
-color9  = #516c59
-
-# green
-color2  = #68815e
-color10 = #68815e
-
-# yellow
-color3  = #738e73
-color11 = #738e73
-
-# blue
-color4  = #839c7e
-color12 = #839c7e
-
-# magenta
-color5  = #7e9a80
-color13 = #7e9a80
-
-# cyan
-color6  = #97ae8d
-color14 = #97ae8d
-
-# white
-color7  = #aec19c
-color15 = #aec19c
