@@ -31,46 +31,6 @@ filter_unmatched_urls = true
 # emit escape sequences for extra modified keys
 #modify_other_keys = false
 
-[colors]
-
-# special
-foreground      = #cba6dd
-foreground_bold = #cba6dd
-cursor          = #cba6dd
-background      = #050209
-
-# black
-color0  = #050209
-color8  = #69676b
-
-# red
-color1  = #5a437c
-color9  = #5a437c
-
-# green
-color2  = #3d38a6
-color10 = #3d38a6
-
-# yellow
-color3  = #52378f
-color11 = #52378f
-
-# blue
-color4  = #694d9d
-color12 = #694d9d
-
-# magenta
-color5  = #9367bb
-color13 = #9367bb
-
-# cyan
-color6  = #7a84fc
-color14 = #7a84fc
-
-# white
-color7  = #cba6dd
-color15 = #cba6dd
-
 [hints]
 #font = Monospace 12
 #foreground = #dcdccc
@@ -81,5 +41,45 @@ color15 = #cba6dd
 #border = #3f3f3f
 #border_width = 0.5
 #roundness = 2.0
+
+[colors]
+
+# special
+foreground      = #50995f
+foreground_bold = #50995f
+cursor          = #50995f
+background      = #0e160d
+
+# black
+color0  = #0e160d
+color8  = #6e736d
+
+# red
+color1  = #294934
+color9  = #294934
+
+# green
+color2  = #36443b
+color10 = #36443b
+
+# yellow
+color3  = #4e4c2c
+color11 = #4e4c2c
+
+# blue
+color4  = #384942
+color12 = #384942
+
+# magenta
+color5  = #317347
+color13 = #317347
+
+# cyan
+color6  = #45544a
+color14 = #45544a
+
+# white
+color7  = #50995f
+color15 = #50995f
 
 # vim: ft=dosini cms=#%s
