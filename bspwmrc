@@ -1,8 +1,9 @@
 #! /bin/sh
 
 ### Autostart ###
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-xrdb /home/andrew/.Xresources
+
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 sxhkd &
 compton &
 wal -R
@@ -10,7 +11,8 @@ redshift &
 polybar bar &
 
 ### General Stuff ###
-bspc monitor -d I II III IV V VI
+bspc monitor -d I II III IV V VI VII VIII IX X
+#bspc monitor -d trm ffx atm dis vlc
 
 bspc config border_width         4
 bspc config window_gap           20

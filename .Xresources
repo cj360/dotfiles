@@ -1,0 +1,49 @@
+!-------------------------------------------------------------------------------
+! Xft fonts
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                      96
+Xft.antialias:                true
+Xft.rgba:                     rgb
+Xft.hinting:                  true
+Xft.hintstyle:                hintmedium
+Xft.lcdfilter:                lcddefault
+
+!-------------------------------------------------------------------------------
+! URxvt settings
+!-------------------------------------------------------------------------------
+
+! Font
+URxvt.font:                   xft:Hack:size=12
+URxvt.boldfont:               xft:Hack:Bold:size=12
+
+URxvt.depth:                  32
+!URxvt.fading:                1
+URxvt.urgentOnBell:           true
+URxvt.visualBell:             false
+URxvt.loginShell:             true
+URxvt.saveLines:              10000
+URxvt.lineSpace:              1
+URxvt.letterSpace:            -1
+URxvt.buffered:               true
+URxvt*cursorUnderline:        true
+URxvt*scrollBar:              false
+URxvt*scrollTtyOutput:        false
+URxvt*scrollWithBuffer:       true
+URxvt*scrollTtyKeypress:      true
+URxvt*iso14755:               false
+!URxvt.iso14755_52:           true
+URxvt.perl-ext-common:        default,clipboard,url-select
+URxvt.url-select.launcher:    firefox
+URxvt.url-select.underline:   true
+!URxvt.keysym.M-c:            perl:clipboard:copy
+!URxvt.keysym.M-v:            perl:clipboard:paste
+URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+
+! Padding
+!URxvt.internalBorder:       14
+!URxvt.externalBorder:       0
+
+
+
