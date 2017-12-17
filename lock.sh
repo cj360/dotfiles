@@ -1,0 +1,1 @@
+i3lock -i ~/Pictures/dead_astronaut.png -R 1000 -F 100
