@@ -3,12 +3,13 @@
 ### Autostart ###
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xrdb /home/andrew/.Xresources
-caffeine &
 sxhkd &
+caffeine &
 compton &
 wal -R
 redshift &
-polybar bar &
+mpd &
+polybar main &
 
 ### General Stuff ###
 bspc monitor -d I II III IV V VI
@@ -17,10 +18,10 @@ bspc config border_width           4
 bspc config window_gap             15
 
 bspc config split_ratio            0.50
-bspc config top_padding            20
-bspc config bottom_padding         20
-bspc config left_padding           20
-bspc config right_padding          20
+bspc config top_padding            32
+bspc config bottom_padding         15
+bspc config left_padding           15
+bspc config right_padding          15
 bspc config borderless_monocle     true
 bspc config gapless_monocle        true
 bspc config paddingless_monocle    false
