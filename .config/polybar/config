@@ -45,9 +45,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = hack:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
-font-2 = fontawesome:pixelsize=10;1
+font-1 = hack:fontformat=truetype:size=10:antialias=true;0
+font-0 = fontawesome:fontformat=truetype:size=10:antialias=true;0
 ;font-3 = tewi:pixelsize=8;1
 ;font-4 = siji:pixelsize=10;1
 ;font-5 = "Kochi Gothic:style=Regular:pixelsize=9"
@@ -55,7 +54,8 @@ font-2 = fontawesome:pixelsize=10;1
 modules-left = bspwm
 modules-center = current-song
 modules-right = volume filesystem wlan date powermenu
-; vpn pac-updates battery weather power-menu
+; current-song
+; vpn pac-updates battery power-menu
 
 tray-position = right
 tray-padding = 2
@@ -378,13 +378,6 @@ exec = /usr/local/bin/pac-updates.sh
 click-middle = /usr/local/bin/pac-updates.sh
 label = %output%
 interval = 30
-
-[module/weather]
-type = custom/script
-exec = /usr/local/bin/weather.sh
-click-middle = /usr/local/bin/weather.sh
-label = %output%
-interval = 1800
 
 [module/power-menu]
 type = custom/text

@@ -38,4 +38,3 @@ bspc config focus_follows_pointer  true
 #bspc config pointer_follows_focus true
 #bspc config click_to_focus        true
 pointer_follows_monitor            false
-
