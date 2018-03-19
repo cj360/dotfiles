@@ -1,49 +1,41 @@
-!-------------------------------------------------------------------------------
-! Xft fonts
-!-------------------------------------------------------------------------------
+! Desktop/Laptop Settings.
 
-Xft.dpi:                      96
-Xft.antialias:                true
-Xft.rgba:                     rgb
-Xft.hinting:                  true
-Xft.hintstyle:                hintmedium
-Xft.lcdfilter:                lcddefault
+URxvt.letterSpace: 0
+URxvt.allow_bold: true
 
-!-------------------------------------------------------------------------------
-! URxvt settings
-!-------------------------------------------------------------------------------
+Xft.dpi       : 96
+Xft.autohint  : 0
+Xft.antialias : 1
+Xft.hinting   : 1
+Xft.hintstyle : hintslight
+Xft.rgba      : rgb
+Xft.lcdfilter : lcddefault
 
-! Font
-URxvt.font:                   xft:Hack:size=12
-URxvt.boldfont:               xft:Hack:Bold:size=12
+! Disable scrollbar
+URxvt.scrollBar: false
 
-URxvt.depth:                  32
-!URxvt.fading:                1
-URxvt.urgentOnBell:           true
-URxvt.visualBell:             false
-URxvt.loginShell:             true
-URxvt.saveLines:              10000
-URxvt.lineSpace:              1
-URxvt.letterSpace:            -1
-URxvt.buffered:               true
-URxvt*cursorUnderline:        true
-URxvt*scrollBar:              false
-URxvt*scrollTtyOutput:        false
-URxvt*scrollWithBuffer:       true
-URxvt*scrollTtyKeypress:      true
-URxvt*iso14755:               false
-!URxvt.iso14755_52:           true
-URxvt.perl-ext-common:        default,clipboard,url-select
-URxvt.url-select.launcher:    firefox
-URxvt.url-select.underline:   true
-!URxvt.keysym.M-c:            perl:clipboard:copy
-!URxvt.keysym.M-v:            perl:clipboard:paste
-URxvt*keysym.Shift-Control-C: perl:clipboard:copy
-URxvt*keysym.Shift-Control-V: perl:clipboard:paste
-
-! Padding
-!URxvt.internalBorder:       14
-!URxvt.externalBorder:       0
+! Set terminal padding
+URxvt.internalBorder:   10
+URxvt.depth:            32
+URxvt.terminalName:     rxvt-unicode-256color
+URxvt.buffered: 				false
 
 
+! Enables copy/paste with Ctrl-Shift-C/V
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
+URxvt.url-launcher: /usr/bin/chromium
+Urxvt.matcher.button:	1
+URxvt*loginShell:	true
+URxvt.saveLines:	10000
+
+! -- font:
+URxvt.font: xft:Hack:antialias:true:size=12
+URxvt.boldFont: xft:Hack:antialias:true:size=12
+
+!URxvt.font: xft:Operator Mono Medium:size=7,xft:SourcePro+Powerline+Awesome:size=7, xft:Wucon Siji:antialias:true:size=7
+!URxvt.boldFont: xft:Operator Mono Medium:size=7,xft:SourcePro+Powerline+Awesome:size=7

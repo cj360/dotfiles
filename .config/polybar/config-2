@@ -5,19 +5,19 @@
 ; The colors used in this polybar configuration
 [colors]
 
-#black = #182a3a
-black = ${xrdb:color0}
+#color0 = #182a3a
+color0 = ${xrdb:color0}
 
-#red = #3c8262
-red = ${xrdb:color1}
+#color1 = #3c8262
+color1 = ${xrdb:color1}
 
-#yellow = #8d8e77
-yellow = ${xrdb:color5}
+#color5 = #8d8e77
+color5 = ${xrdb:color5}
 
-#white = #c2c0c3
-white =  ${xrdb:color7}
+#color7 = #c2c0c3
+color7 =  ${xrdb:color7}
 
-magenta = ${xrdb:color4}
+color4 = ${xrdb:color4}
 
 
 [dims]
@@ -37,26 +37,27 @@ offset-y = 0
 radius = 2
 ;monitor = LVDS1
 
-font-0 = Iosevka:pixelsize=11;1
+font-0 = bitstream vera sans:pixelsize=11;1
 font-1 = FontAwesome:pixelsize=11;1
-font-2 = Wuncon Siji:pixelsize=11;1
-font-3 = Unifont:pixelsize=11;1
+font-2 = Siji:pixelsize=11;1
+;font-3 = unifont:pixelsize=9
+;font-4 = Iosevka Medium:size=7;1
 
-background = ${colors.black}
-foreground = ${colors.white}
+background = ${colors.color0}
+foreground = ${colors.color7}
 
 border-size = 2
-border-color = ${colors.black}
+border-color = ${colors.color0}
 
 line-size = 2
 
 modules-left = powermenu bspwm
-;allow xwindow
+; xwindow allow
 
-modules-center =  
-;spotify
+modules-center =
+; spotify
 
-modules-right = temperature volume cpu date
+modules-right = temperature pulseaudio cpu date
 ;xkeyboard fan wlan battery
 
 fixed-center = true
@@ -73,28 +74,28 @@ wrapping-scroll = false
 
 ; Unfocused = Inactive workspace on any monitor
 ;label-unfocused = %index%
-;label-unfocused-background = ${colors.black}
-;label-unfocused-foreground = ${colors.white}
+;label-unfocused-background = ${colors.color0}
+;label-unfocused-foreground = ${colors.color7}
 ;label-unfocused-padding = ${dims.padding}
 
 label-focused = %name%
-label-focused-background = ${colors.black}
-label-focused-foreground = ${colors.white}
+label-focused-background = ${colors.color0}
+label-focused-foreground = ${colors.color7}
 label-focused-padding = ${dims.padding}
 
 label-urgent = %name%
-label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.black}
+label-urgent-background = ${colors.color1}
+label-urgent-foreground = ${colors.color0}
 label-urgent-padding = ${dims.padding}
 
 label-empty = %name%
-label-empty-background = ${colors.black}
-label-empty-foreground = ${colors.red}
+label-empty-background = ${colors.color0}
+label-empty-foreground = ${colors.color1}
 label-empty-padding = ${dims.padding}
 
 label-occupied = %name%
-label-occupied-background = ${colors.black}
-label-occupied-foreground = ${colors.white}
+label-occupied-background = ${colors.color0}
+label-occupied-foreground = ${colors.color7}
 label-occupied-padding = ${dims.padding}
 
 format-padding = 0
@@ -103,7 +104,7 @@ format-padding = 0
 [module/allow]
 type = custom/text
 content = "  | "
-content-foreground = ${colors.magenta}
+content-foreground = ${colors.color4}
 
 ;xwindow
 [module/xwindow]
@@ -111,13 +112,13 @@ type = internal/xwindow
 ;format-prefix = "  "
 format-prefix = "  "
 
-format-prefix-foreground = ${colors.white}
-format-prefix-background = ${colors.red}
+format-prefix-foreground = ${colors.color7}
+format-prefix-background = ${colors.color1}
 
 label = "%title:0:35:..% "
 label-font = 5
-label-foreground = ${colors.white}
-label-background = ${colors.red}
+label-foreground = ${colors.color7}
+label-background = ${colors.color1}
 
 labal-maxlen = 25
 format-pading = 2
@@ -125,17 +126,17 @@ format-pading = 2
 ;xkeyboard
 [module/xkeyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
+color0list-0 = num lock
 
 format-prefix = " Layout: "
 format-prefix-font = 1
-format-prefix-foreground = ${colors.white}
-format-prefix-background = ${colors.red}
+format-prefix-foreground = ${colors.color7}
+format-prefix-background = ${colors.color1}
 
 label-layout = "%layout%  "
 label-layout-font = 1
-label-layout-foreground = ${colors.white}
-label-layout-background = ${colors.red}
+label-layout-foreground = ${colors.color7}
+label-layout-background = ${colors.color1}
 
 format-padding = 2
 
@@ -147,18 +148,18 @@ adapter = ACAD
 full-at = 95
 
 format-charging = <label-charging>
-format-charging-background = ${colors.yellow}
-format-charging-foreground = ${colors.black}
+format-charging-background = ${colors.color5}
+format-charging-foreground = ${colors.color0}
 format-charging-padding = ${dims.padding}
 
 format-discharging = <label-discharging>
-format-discharging-background = ${colors.red}
-format-discharging-foreground = ${colors.white}
+format-discharging-background = ${colors.color1}
+format-discharging-foreground = ${colors.color7}
 format-discharging-padding = ${dims.padding}
 
 format-full = <label-full>
-format-full-background = ${colors.red}
-format-full-foreground = ${colors.white}
+format-full-background = ${colors.color1}
+format-full-foreground = ${colors.color7}
 format-full-padding = ${dims.padding}
 
 label-charging = Charging: %percentage%%
@@ -172,13 +173,13 @@ interval = 1.0
 
 date = "%Y-%M-%d"
 #time = %H:%M:%S
-time = %I:%M
+time = %I:%M %p
 time-alt = %A, %d-%B-%y
 
 label = %time%
 format =  <label>
-format-foreground = ${colors.white}
-format-background = ${colors.black}
+format-foreground = ${colors.color7}
+format-background = ${colors.color0}
 format-padding = ${dims.padding}
 
 ;temperature
@@ -193,28 +194,28 @@ format-warn = " <ramp> <label-warn>"
 ;format-warn-underline = ${self.format-underline}
 
 label = "%temperature-c% "
-label-background = ${colors.black}
+label-background = ${colors.color0}
 label-warn = "%temperature-c% "
-label-warn-foreground = ${colors.red}
-label-warn-background = ${colors.black}
+label-warn-foreground = ${colors.color1}
+label-warn-background = ${colors.color0}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.red}
-;ramp-background = ${colors.black}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.color1}
+;ramp-background = ${colors.color0}
 
 format-padding = 1
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp36s0
 interval = 3.0
 
 format-connected = <ramp-signal><label-connected>
 label-connected =  " %downspeed:6%  "
-label-connected-background = ${colors.red}
-label-connected-foreground = ${colors.white}
+label-connected-background = ${colors.color1}
+label-connected-foreground = ${colors.color7}
 
 format-disconnected =
 
@@ -223,38 +224,38 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.black}
-ramp-signal-background = ${colors.red}
+ramp-signal-foreground = ${colors.color0}
+ramp-signal-background = ${colors.color1}
 
 ;fan
 [module/fan]
 type = custom/script
 format = "<label>  "
-;format-background = ${colors.black}
-format-foreground = ${colors.red}
+;format-background = ${colors.color0}
+format-foreground = ${colors.color1}
 exec-if = sensors
 exec = "sensors | grep fan1 | awk '{print $2,$3}'"
 format-prefix = " "
 
-format-prefix-background = ${colors.black}
-format-prefix-foreground = ${colors.red}
+format-prefix-background = ${colors.color0}
+format-prefix-foreground = ${colors.color1}
 
 format-padding = 0
 
 ; Volume
-[module/volume]
+[module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-label-volume =  %percentage%%
-label-volume-foreground = ${colors.white}
-label-volume-background = ${colors.red}
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.color7}
+label-volume-background = ${colors.color1}
 label-volume-padding = ${dims.padding}
 
 format-muted = <label-muted>
-label-muted = ""
-label-muted-foreground = ${colors.white}
-label-muted-background = ${colors.red}
+label-muted = "Mute"
+label-muted-foreground = ${colors.color7}
+label-muted-background = ${colors.color1}
 label-muted-padding = ${dims.padding}
 
 ; Music module with getmusicstatus
@@ -264,8 +265,8 @@ exec = getmusicstatus
 tail = true
 
 format = <label>
-format-background = ${colors.black}
-format-foreground = ${colors.white}
+format-background = ${colors.color0}
+format-foreground = ${colors.color7}
 format-padding = ${dims.padding}
 label = %output%
 
@@ -273,18 +274,18 @@ label = %output%
 [module/spotify]
 
 type = custom/script
-;exec = ~/.config/polybar/spotify.sh %artist%  %title%
+;exec = ~/.config/polybar/spotify.sh %artist% ‣ %title%
 tail = true
-exec = ~/.config/polybar/spotify.sh %artist%  %title%
+exec = ~/.config/polybar/spotify.sh %artist% ▸ %title%
 
-format-background = ${colors.black}
-;format-foreground = ${colors.red}
-format-foreground = ${colors.white}
+format-background = ${colors.color0}
+;format-foreground = ${colors.color1}
+format-foreground = ${colors.color7}
 
 ;format-prefix = " "
 format-prefix = " "
-format-prefix-background = ${colors.black}
-format-prefix-foreground = ${colors.red}
+format-prefix-background = ${colors.color0}
+format-prefix-foreground = ${colors.color1}
 internal = 1
 
 format-padding = 1
@@ -294,11 +295,11 @@ format-padding = 1
 type = internal/cpu
 interval = 2
 format-padding = ${dims.padding}
-format-foreground = ${colors.red}
-format-background = ${colors.black}
+format-foreground = ${colors.color1}
+format-background = ${colors.color0}
 format-prefix = "CPU: "
 label = %percentage%%
-label-foreground = ${colors.white}
+label-foreground = ${colors.color7}
 
 ; powermenu
 [module/powermenu]
@@ -306,24 +307,31 @@ type = custom/menu
 
 format-spacing = 2
 
-label-open = "    "
+label-open = "    "
 ;label-open = "「⍴ower」"
 
-;label-open-foreground = ${colors.red}
-label-open-background = ${colors.black}
+;label-open-foreground = ${colors.color1}
+label-open-background = ${colors.color0}
 label-close =  cancel
-label-close-foreground = ${colors.yellow}
+label-close-foreground = ${colors.color5}
 label-separator = |
-label-separator-foreground = ${colors.white}
+label-separator-foreground = ${colors.color7}
 
-menu-0-0 = 
-menu-0-0-exec = bspc quit
-menu-0-1 = 
-menu-0-1-exec = systemctl suspend
-menu-0-2 = 
-menu-0-2-exec = systemctl reboot
-menu-0-3 = 
-menu-0-3-exec = systemctl poweroff
+menu-0-0 = suspend
+menu-0-0-exec = menu-open-1
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-2
+menu-0-2 = power off
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = Suspend?
+menu-1-0-exec = systemctl suspend
+
+menu-3-0 = Poweroff?
+menu-3-0-exec = systemctl poweroff
+
+menu-2-0 = Reboot?
+menu-2-0-exec = systemctl reboot
 [settings]
 screenchange-reload = true
 
