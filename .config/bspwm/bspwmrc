@@ -7,7 +7,7 @@ wal -R
 #mpd &
 sxhkd &
 caffeine &
-compton &
+#compton &
 redshift &
 polybar top &
 

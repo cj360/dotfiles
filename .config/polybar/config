@@ -50,13 +50,13 @@ border-color = ${colors.black}
 
 line-size = 2
 
-modules-left = powermenu bspwm
+modules-left = bspwm
 ;allow xwindow
 
 modules-center =  
 ;spotify
 
-modules-right = temperature volume cpu date
+modules-right = temperature volume cpu date powermenu
 ;xkeyboard fan wlan battery
 
 fixed-center = true
@@ -322,7 +322,7 @@ menu-0-1 = 
 menu-0-1-exec = systemctl suspend
 menu-0-2 = 
 menu-0-2-exec = systemctl reboot
-menu-0-3 = 
+menu-0-3 =  
 menu-0-3-exec = systemctl poweroff
 [settings]
 screenchange-reload = true

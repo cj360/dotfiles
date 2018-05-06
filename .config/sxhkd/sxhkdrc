@@ -14,6 +14,10 @@ super + @space
 super + p
 	scrot ~/Pictures/%m-%d-%Y-%T-screenshot.png
 
+# Lock with lightdm
+super + l
+	dm-tool lock
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -75,8 +79,8 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+#super + {grave,Tab}
+#	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
