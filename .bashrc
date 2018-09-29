@@ -18,4 +18,4 @@ export CCACHE_DIR=~/.ccache
 export PATH=$PATH{}:/opt/android-sdk/platform-tools
 
 # Import colorscheme from 'wal'
-(wal -r &)
+(cat ~/.cache/wal/sequences &)

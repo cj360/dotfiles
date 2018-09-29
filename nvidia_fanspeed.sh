@@ -1,7 +1,7 @@
 #!/bin/bash
 
 <<LICENSE
-    Copyright (C) 2017 cj360
+    Copyright (C) 2017  kevinlekiller
     
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -28,10 +28,10 @@ MINSPEED=0
 # What fan speed to set at what temperature, for example set the fan speed at 25% when GPU temp is 50 degrees.
 # All other values are calculated on the fly, pass the SHOWMAP=true environment variable to show the calculated values.
 TEMP[0]=50
-SPEED[0]=25
+SPEED[0]=30
 
 TEMP[1]=60
-SPEED[1]=50
+SPEED[1]=60
 
 TEMP[2]=70
 SPEED[2]=75
