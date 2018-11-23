@@ -1,334 +1,253 @@
-;==============================================================
-; Polybar configuration
-;==============================================================
 
-; The colors used in this polybar configuration
 [colors]
+xcolor0 = ${xrdb:color0:#111}
+xcolor1 = ${xrdb:color1:#222}
+xcolor3 = ${xrdb:color3:#222}
+xcolor4 = ${xrdb:color4:#222}
+xcolor5 = ${xrdb:color5:#222}
+xcolor6 = ${xrdb:color6:#333}
+xcolor7 = ${xrdb:color7:#333}
+alert   = #AF5454
 
-#black = #182a3a
-black = ${xrdb:color0}
+[settings]
+screenchange-reload = true
 
-#red = #3c8262
-red = ${xrdb:color1}
+[global/wm]
+;margin-top = 3
+;margin-bottom = 3
 
-#yellow = #8d8e77
-yellow = ${xrdb:color5}
-
-#white = #c2c0c3
-white =  ${xrdb:color7}
-
-magenta = ${xrdb:color4}
-
-
-[dims]
-padding = 2
-
-[bar/top]
-;width = 98.5%
-;width = 73%
+[bar/main]
+;monitor = ${env:MONITOR}
+bottom = true
 width = 100%
+height = 25
+;offset-x = 1%
+offset-y = 0%
+radius = 0.0
+fixed-center = true
 
-height = 22
-
-;offset-x = 16
-;offset-x = 216
-
-offset-y = 0
-radius = 2
-;monitor = LVDS1
-
-font-0 = Iosevka:pixelsize=11;1
-font-1 = FontAwesome:pixelsize=11;1
-font-2 = Wuncon Siji:pixelsize=11;1
-font-3 = Unifont:pixelsize=11;1
-
-background = ${colors.black}
-foreground = ${colors.white}
-
-border-size = 2
-border-color = ${colors.black}
+background = ${colors.xcolor0}
+foreground = ${colors.xcolor7}
 
 line-size = 2
+line-color = #f00
+
+;border-bottom = 0
+;border-top = 15
+;border-right = 25
+;border-left = 25
+border-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 2
+padding-top = 2
+padding-bottom = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Fira Sans:weight=Regular:size=10.5;3"
+font-1 = "FontAwesome:pixelsize=12;2"
+font-2 = "Geforce:style=Bold:pixelsize=12;2.5"
+font-3 = "Spy Agency:style=Regular:pixelsize=12;3"
 
 modules-left = bspwm
-;allow xwindow
+;modules-center = 
+modules-right = cpu-temp gpu-temp pulseaudio date powermenu
+; cpu xwindow vpncheck
 
-modules-center =  
-;spotify
-
-modules-right = temperature volume cpu date powermenu
-;xkeyboard fan wlan battery
-
-fixed-center = true
 wm-restack = bspwm
 tray-position = right
 
-; bspwm
-[module/bspwm]
-type = internal/bspwm
+;fix tray position
+;override-redirect = true
 
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Unfocused = Inactive workspace on any monitor
-;label-unfocused = %index%
-;label-unfocused-background = ${colors.black}
-;label-unfocused-foreground = ${colors.white}
-;label-unfocused-padding = ${dims.padding}
-
-label-focused = %name%
-label-focused-background = ${colors.black}
-label-focused-foreground = ${colors.white}
-label-focused-padding = ${dims.padding}
-
-label-urgent = %name%
-label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.black}
-label-urgent-padding = ${dims.padding}
-
-label-empty = %name%
-label-empty-background = ${colors.black}
-label-empty-foreground = ${colors.red}
-label-empty-padding = ${dims.padding}
-
-label-occupied = %name%
-label-occupied-background = ${colors.black}
-label-occupied-foreground = ${colors.white}
-label-occupied-padding = ${dims.padding}
-
-format-padding = 0
-
-;allow
-[module/allow]
-type = custom/text
-content = "  | "
-content-foreground = ${colors.magenta}
+tray-detached = false
+;tray-position =
+;tray-offset-x = 0
+;tray-offset-y = 0
+;tray-maxsize = 16
+;tray-padding = 0
+;tray-scale = 1
+tray-background = ${colors.xcolor0}
 
 ;xwindow
 [module/xwindow]
 type = internal/xwindow
-;format-prefix = "  "
-format-prefix = "  "
+;format-prefix = "  "
 
-format-prefix-foreground = ${colors.white}
-format-prefix-background = ${colors.red}
+format-prefix-foreground = ${colors.xcolor7}
+format-prefix-background = ${colors.xcolor0}
 
 label = "%title:0:35:..% "
 label-font = 5
-label-foreground = ${colors.white}
-label-background = ${colors.red}
+label-foreground = ${colors.xcolor7}
+label-background = ${colors.xcolor0}
 
 labal-maxlen = 25
 format-pading = 2
 
-;xkeyboard
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+[module/bspwm]
+type = internal/bspwm
 
-format-prefix = " Layout: "
-format-prefix-font = 1
-format-prefix-foreground = ${colors.white}
-format-prefix-background = ${colors.red}
+;ws-icon-0 = I;
+;ws-icon-1 = II;
+;ws-icon-2 = III;
+;ws-icon-3 = IV;
+;ws-icon-4 = V;
 
-label-layout = "%layout%  "
-label-layout-font = 1
-label-layout-foreground = ${colors.white}
-label-layout-background = ${colors.red}
+label-focused = 
+label-focused-foreground = ${colors.xcolor7}
+label-focused-background = ${colors.xcolor0}
+label-focused-underline= ${colors.xcolor6}
+label-focused-padding = 1
 
-format-padding = 2
+label-occupied = 
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.xcolor4}
 
-; Battery
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ACAD
-full-at = 95
+label-urgent = !
+label-urgent-background = ${colors.xcolor0}
+label-urgent-padding = 1
 
-format-charging = <label-charging>
-format-charging-background = ${colors.yellow}
-format-charging-foreground = ${colors.black}
-format-charging-padding = ${dims.padding}
+label-empty = 
+label-empty-foreground = ${colors.xcolor1}
+label-empty-padding = 1
 
-format-discharging = <label-discharging>
-format-discharging-background = ${colors.red}
-format-discharging-foreground = ${colors.white}
-format-discharging-padding = ${dims.padding}
+[module/mpd]
+type = internal/mpd
 
-format-full = <label-full>
-format-full-background = ${colors.red}
-format-full-foreground = ${colors.white}
-format-full-padding = ${dims.padding}
+host = 127.0.0.1
+port = 6600
 
-label-charging = Charging: %percentage%%
-label-discharging = BAT: %percentage%%
-label-full = Full Capacity
+; Seconds to sleep between progressbar/song timer sync, Default: 1
+interval = 2
 
-; Date
-[module/date]
-type = internal/date
-interval = 1.0
+format-online = <label-song>
+format-online-prefix = " "
+format-online-prefix-foreground = ${colors.xcolor1}
 
-date = "%Y-%M-%d"
-#time = %H:%M:%S
-time = %I:%M
-time-alt = %A, %d-%B-%y
+label-song = %artist% - %title%
+label-offline = mpd is offline
 
-label = %time%
-format =  <label>
-format-foreground = ${colors.white}
-format-background = ${colors.black}
-format-padding = ${dims.padding}
-
-;temperature
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 65
-
-format = <ramp> <label>
-;format-underline = #f50a4d
-format-warn = " <ramp> <label-warn>"
-;format-warn-underline = ${self.format-underline}
-
-label = "%temperature-c% "
-label-background = ${colors.black}
-label-warn = "%temperature-c% "
-label-warn-foreground = ${colors.red}
-label-warn-background = ${colors.black}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.red}
-;ramp-background = ${colors.black}
-
-format-padding = 1
-
-[module/wlan]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-format-connected = <ramp-signal><label-connected>
-label-connected =  " %downspeed:6%  "
-label-connected-background = ${colors.red}
-label-connected-foreground = ${colors.white}
-
-format-disconnected =
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.black}
-ramp-signal-background = ${colors.red}
-
-;fan
-[module/fan]
+[module/current-song-spotify]
 type = custom/script
-format = "<label>  "
-;format-background = ${colors.black}
-format-foreground = ${colors.red}
-exec-if = sensors
-exec = "sensors | grep fan1 | awk '{print $2,$3}'"
-format-prefix = " "
-
-format-prefix-background = ${colors.black}
-format-prefix-foreground = ${colors.red}
-
-format-padding = 0
-
-; Volume
-[module/volume]
-type = internal/pulseaudio
-
-format-volume = <label-volume>
-label-volume =  %percentage%%
-label-volume-foreground = ${colors.white}
-label-volume-background = ${colors.red}
-label-volume-padding = ${dims.padding}
-
-format-muted = <label-muted>
-label-muted = ""
-label-muted-foreground = ${colors.white}
-label-muted-background = ${colors.red}
-label-muted-padding = ${dims.padding}
-
-; Music module with getmusicstatus
-[module/music]
-type = custom/script
-exec = getmusicstatus
+exec = ~/scripts/spotify.sh %artist% - %title%
 tail = true
+interval = 2
 
-format = <label>
-format-background = ${colors.black}
-format-foreground = ${colors.white}
-format-padding = ${dims.padding}
-label = %output%
-
-;spotify
-[module/spotify]
-
-type = custom/script
-;exec = ~/.config/polybar/spotify.sh %artist%  %title%
-tail = true
-exec = ~/.config/polybar/spotify.sh %artist%  %title%
-
-format-background = ${colors.black}
-;format-foreground = ${colors.red}
-format-foreground = ${colors.white}
-
-;format-prefix = " "
-format-prefix = " "
-format-prefix-background = ${colors.black}
-format-prefix-foreground = ${colors.red}
-internal = 1
-
-format-padding = 1
-
-;cpu
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-padding = ${dims.padding}
-format-foreground = ${colors.red}
-format-background = ${colors.black}
-format-prefix = "CPU: "
-label = %percentage%%
-label-foreground = ${colors.white}
+;format-prefix = " "
+format-prefix-foreground = ${colors.xcolor7}
 
-; powermenu
+format = <label>
+format-foreground = ${colors.xcolor7}
+
+label = %{T4}RYZEN %{T-}%percentage%%
+
+[module/cpu-temp]
+type = internal/temperature
+
+interval = 1
+warn-temperature = 60
+
+format = %{T4}RYZEN <ramp>%{T-} <label>
+format-warn = %{T4}<ramp>%{T-} <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+[module/gpu-temp]
+type = custom/script
+
+exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+interval = 2
+
+label = %{T3}GEFORCE %{T-} %output%°C
+
+[module/pulseaudio]
+type = internal/pulseaudio
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+; sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <label-volume>
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.xcolor1}
+
+format-muted = <label-muted>
+format-muted-prefix = " "
+format-muted-prefix-foreground = ${colors.xcolor1}
+
+label-volume = %percentage%%
+label-volume-foreground = ${colors.xcolor7}
+
+label-muted = muted
+label-muted-foreground = ${colors.xcolor4}
+
+[module/vpncheck]
+type = custom/script
+exec = sh ~/scripts/vpncheck.sh
+format-foreground = ${colors.xcolor7}
+interval = 5
+
+[module/time]
+type = internal/date
+interval = 5
+time = %I:%M
+time-alt = %H:%M:%S
+format-prefix-foreground = ${colors.xcolor7}
+label = %time%
+
+[module/date]
+type = internal/date
+interval = 1
+
+format-prefix-foreground = ${colors.xcolor1}
+format-prefix = ""
+format-foreground = ${colors.xcolor7}
+
+time = "%I:%M %p"
+time-alt = "%A, %d-%B-%y"
+label = " %date%%time% "
+
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 2
 
-label-open = "    "
+label-open = ""
 ;label-open = "「⍴ower」"
 
-;label-open-foreground = ${colors.red}
-label-open-background = ${colors.black}
-label-close =  cancel
-label-close-foreground = ${colors.yellow}
+label-open-background = ${colors.xcolor0}
+label-close = cancel
+label-close-foreground = ${colors.xcolor7}
 label-separator = |
-label-separator-foreground = ${colors.white}
+label-separator-foreground = ${colors.xcolor7}
 
+;menu-0-0 = 
+;menu-0-0-exec = systemctl suspend
 menu-0-0 = 
 menu-0-0-exec = bspc quit
-menu-0-1 = 
-menu-0-1-exec = systemctl suspend
-menu-0-2 = 
-menu-0-2-exec = systemctl reboot
-menu-0-3 =  
-menu-0-3-exec = systemctl poweroff
-[settings]
-screenchange-reload = true
-
-[global/wm]
-margin-top = 0
-margin-bottom = -2
-
-; vim:ft=dosini
+menu-0-1 = 
+menu-0-1-exec = systemctl reboot
+menu-0-2 =  
+menu-0-2-exec = systemctl poweroff

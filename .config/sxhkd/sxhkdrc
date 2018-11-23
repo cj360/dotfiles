@@ -1,4 +1,4 @@
-␜#
+#
 # wm independent hotkeys
 #
 
@@ -128,10 +128,18 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# Volume stuff.
+# Volume Controls
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +5%
 XF86AudioLowerVolume
 	pactl set-sink-volume @DEFAULT_SINK@ -5%
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Song controls
+XF86AudioPrev
+	mpc prev
+XF86AudioPlay
+	mpc toggle
+XF86AudioNext
+	mpc next
