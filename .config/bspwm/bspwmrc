@@ -1,32 +1,22 @@
 #! /bin/sh
 
-### Colors ###
-. "${HOME}/.cache/wal/colors.sh"
-
-bspc config normal_border_color   "$color1"
-bspc config active_border_color   "$color2"
-bspc config focused_border_color  "$color15"
-bspc config presel_border_color   "$color1"
-
 ### Autostart ###
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-$HOME/.config/nvidia_fanspeed.sh &
-xrdb -merge $HOME/.Xresources
-unclutter &
-wal -R 
-mpd &
+wal -R
 sxhkd &
-caffeine &
 compton &
+unclutter &
 redshift &
-polybar main &
+caffeine &
+. "${HOME}/.config/polybar/launch.sh" &
+. "${HOME}/.config/nvidia_fanspeed.sh" &
+
 
 ### Individual Rules ###
 bspc rule -a mpv state=fullscreen
 bspc rule -a feh state=fullscreen
 
 ### General Stuff ###
-bspc monitor -d I II III IV V VI
+bspc monitor -d I II III IV V
 
 bspc config border_width            2
 #bspc config window_gap              15
@@ -49,3 +39,15 @@ bspc config focus_follows_pointer   true
 bspc config pointer_follows_monitor false
 #bspc config pointer_follows_focus  true
 #bspc config click_to_focus         true
+
+# source the colors.
+. "${HOME}/.cache/wal/colors.sh"
+
+# Set the border colors.
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+# Use the line below if you are on bspwm >= 0.9.4
+bspc config presel_feedback_color "$color1"
+# Use the line below if you are on bspwm < 0.9.4
+#bspc config presel_border_color "$color1"
