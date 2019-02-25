@@ -3,6 +3,7 @@
 ### Autostart ###
 wal -R
 sxhkd &
+mpd &
 compton &
 unclutter &
 redshift &

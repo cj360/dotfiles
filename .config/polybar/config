@@ -4,7 +4,7 @@
 
 [colors]
 background = ${xrdb:color0}
-background-alt = #E6202020
+background-alt = ${xrdb:color1}
 foreground = ${xrdb:color7}
 foreground-alt = ${xrdb:color6}
 primary = ${xrdb:color12}
@@ -17,6 +17,22 @@ cpu-temp = ${xrdb:color2}
 gpu-temp = ${xrdb:color6}
 mpd = ${xrdb:color4}
 bspwm = ${xrdb:color3}
+
+##############
+#   Settings
+##############
+
+[settings]
+screenchange-reload = true
+
+
+##############
+#   WM
+##############
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
 
 
 [bar/top]
@@ -40,7 +56,7 @@ font-0 = Hack Nerd Font:style=Regular:pixelsize=11;2
 font-1 = Hack Nerd Font:fontformat=truetype:size=14:antialias=false;3
 
 modules-left = powermenu left-bspwm bspwm right-bspwm
-modules-center =
+modules-center = left-mpd mpd right-mpd
 modules-right =  left-cput cpu-temp right-cput left-gput gpu-temp right-gput left-pulse pulseaudio right-pulse left-date date right-date
 
 tray-position = right
@@ -72,7 +88,7 @@ label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.bspwm}
 
 label-occupied = "  "
-label-occupied-foreground = ${colors.foreground}
+label-occupied-foreground = ${colors.background-alt}
 label-occupied-background = ${colors.bspwm}
 
 label-urgent = "  "
@@ -131,25 +147,6 @@ format-prefix-background = ${colors.gpu-temp}
 
 
 ##############
-#   Date
-##############
-
-[module/date]
-type = internal/date
-interval = 1
-
-format =  " <label>"
-format-foreground = ${colors.foreground}
-format-background = ${colors.date}
-
-label = "%time%"
-label-foreground = ${colors.foreground}
-
-time = %I:%M
-time-alt = %a %d, %Y
-
-
-##############
 #   Pulseaudio
 ##############
 
@@ -174,9 +171,9 @@ ramp-volume-background = ${colors.pulse}
 #   MPD
 ##############
 
-[module/mpdcon]
+[module/mpd]
 type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song> <icon-prev> <toggle> <icon-next>
 format-online-background = ${colors.mpd}
 
 icon-prev = " 玲"
@@ -185,32 +182,28 @@ icon-play=  " 契"
 icon-pause = " "
 icon-next =  " 怜"
 
-[module/mpdtrack]
-type = internal/mpd
-format-online =   <label-song>
-format-online-background = ${colors.mpd}
-
 label-song = " %title% "
 label-song-maxlen = 35
 label-song-ellipsis = true
 
-[module/mpdtime]
-type = internal/mpd
-format-online = <label-time>
-format-online-background = ${colors.mpd}
 
-label-time = "%elapsed% / %total%"
+##############
+#   Date
+##############
 
-[module/mpdbar]
-type = internal/mpd
-format-online = <bar-progress>
-format-online-background = ${colors.mpd}
+[module/date]
+type = internal/date
+interval = 1
 
-bar-progress-width = 10
-bar-progress-indicator = 
-bar-progress-fill = 
-bar-progress-empty = 
-bar-progress-empty-foreground = ${colors.fs}
+format =  " <label>"
+format-foreground = ${colors.foreground}
+format-background = ${colors.date}
+
+label = "%time%"
+label-foreground = ${colors.foreground}
+
+time = %I:%M
+time-alt = %a %d, %Y
 
 
 ##############
@@ -263,7 +256,7 @@ content-foreground = ${colors.date}
 
 [module/right-mpd]
 inherit = module/glyph
-content = "%{T2}%{T-}"
+content = "%{T2}%{T-}"
 content-foreground = ${colors.mpd}
 
 [module/left-mpd]
@@ -307,23 +300,6 @@ menu-0-1 = 
 menu-0-1-exec = systemctl reboot
 menu-0-2 = "  "
 menu-0-2-exec = systemctl poweroff
-
-
-##############
-#   Settings
-##############
-
-[settings]
-screenchange-reload = true
-
-
-##############
-#   WM
-##############
-
-[global/wm]
-margin-top = 0
-margin-bottom = 0
 
 
 ; vim:ft=dosini
