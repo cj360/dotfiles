@@ -88,13 +88,12 @@ label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.bspwm}
 
 label-occupied = "  "
-label-occupied-foreground = ${colors.background-alt}
+label-occupied-foreground = ${colors.secondary}
 label-occupied-background = ${colors.bspwm}
 
 label-urgent = "  "
-label-urgent-foreground = #000000
-label-urgent-background = ${colors.alert}
-label-urgent-underline = #9b0a20
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.bspwm}
 
 label-empty = "  "
 label-empty-foreground = ${colors.foreground}

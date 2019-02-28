@@ -27,7 +27,6 @@ export EDITOR=nano
 eval "$(thefuck --alias fuck)"
 alias mpv1080="mpv --ytdl-format='bestvideo[ext=mp4][width<=1920][height<=1080]+bestaudio[ext=m4a]'"
 alias youtube-dl="youtube-dl -o '%(title)s.%(ext)s' --restrict-filenames"
-alias myscrot='scrot ~/Pictures/Screenshots/%b%d--%I%M%S.png'
 
 . /usr/share/git/completion/git-completion.bash
 alias gitpick='git cherry-pick'
