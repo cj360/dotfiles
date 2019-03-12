@@ -8,6 +8,7 @@ compton &
 unclutter &
 redshift &
 caffeine &
+blueberry-tray &
 . "${HOME}/.config/polybar/launch.sh" &
 . "${HOME}/.config/nvidia_fanspeed.sh" &
 

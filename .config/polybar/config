@@ -60,14 +60,13 @@ modules-center = left-mpd mpd right-mpd
 modules-right =  left-cput cpu-temp right-cput left-gput gpu-temp right-gput left-pulse pulseaudio right-pulse left-date date right-date
 
 tray-position = right
-;tray-padding = .5
+tray-padding = .5
 ;tray-detached = true
 ;tray-maxsize = 16
 tray-scale = 1.0
 tray-detached = false
 tray-background = ${colors.background}
 
-;override-redirect = true
 wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
