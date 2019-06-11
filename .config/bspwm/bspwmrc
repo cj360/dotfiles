@@ -3,15 +3,16 @@
 ### Autostart ###
 wal -R
 sxhkd &
+dunst &
 mpd &
 compton &
+nm-applet &
 unclutter &
 redshift &
 caffeine &
-blueberry-tray &
-. "${HOME}/.config/polybar/launch.sh" &
-. "${HOME}/.config/nvidia_fanspeed.sh" &
-
+nfancurve -c ~/.config/nfancurve/config &
+. ~/.config/polybar/launch.sh &
+#. ~/.config/nvidia_fanspeed.sh &
 
 ### Individual Rules ###
 bspc rule -a mpv state=fullscreen
@@ -22,8 +23,8 @@ bspc monitor -d I II III IV V
 
 bspc config border_width            2
 
-bspc config borderless_monocle      true
-bspc config gapless_monocle         true
+#bspc config borderless_monocle      true
+#bspc config gapless_monocle         true
 bspc config paddingless_monocle     false
 bspc config single_monocle          true
 bspc config focus_by_distance       true
@@ -35,7 +36,6 @@ bspc config focus_follows_pointer   true
 bspc config pointer_follows_monitor false
 #bspc config pointer_follows_focus  true
 #bspc config click_to_focus         true
-
 # source the colors.
 . "${HOME}/.cache/wal/colors.sh"
 
