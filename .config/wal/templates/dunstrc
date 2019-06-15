@@ -1,0 +1,55 @@
+[global]
+    # Split notifications into multiple lines if they don't fit into
+    # geometry.
+    word_wrap = yes
+
+    # Draw a line of "separator_height" pixel height between two
+    # notifications.
+    # Set to 0 to disable.
+    separator_height = 1
+
+    # Padding between text and separator.
+    # padding = 8
+    padding = 8
+
+    # Horizontal padding.
+    horizontal_padding = 10
+
+    # The frame color and width of the notification
+    frame_color = "{color4}"
+    frame_width = 3
+
+    # How long a user needs to be idle for sticky notifications
+    idle_threshold = 120
+
+    # Font and typography settings
+    font = Fira Mono 11
+    alignment = right
+
+    # Format for how notifications will be displayed
+    # Usage: `notify-send 'Title' 'Summary'`
+    #format = "<b>%s</b>: %b"
+
+    # Allow some HTML tags like <i> and <u> in notifications
+    markup = full
+
+# These are the keybindings used to control dunst notifications
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+
+# Set the background and foreground (text) color for all notifications
+[urgency_low]
+    background = "{background}"
+    foreground = "{foreground}"
+
+[urgency_normal]
+    background = "{background}"
+    foreground = "{foreground}"
+
+[urgency_critical]
+    background = "{background}"
+    foreground = "{foreground}"
+
+# vim:ft=cfg
