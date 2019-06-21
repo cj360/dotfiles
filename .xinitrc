@@ -11,7 +11,8 @@ if [[ -f ~/.Xresources ]]; then
   xrdb -load ~/.Xresources
 fi
 
+source ~/.cache/wal/colors-tty.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-xsetroot -cursor_name left_ptr
 xrandr -d :0 --output DP-4 --auto
+xsetroot -cursor_name left_ptr
 exec bspwm
