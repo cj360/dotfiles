@@ -1,0 +1,17 @@
+configuration {
+  modi: "window,run,drun";
+  font: "Hack 12";
+  show-icons: true;
+  bw: 0;
+  theme: "~/.cache/wal/colors-rofi-dark.rasi";
+  drun-icon-theme: "Papirus-Dark";
+  terminal: "alacritty";
+  scroll-method: 1;
+  columns: 2;
+  width: 40;
+  display-drun: "Search";
+  display-window: "Windows";
+  display-calc: "Calc";
+}
+
+// vim:syn=java
