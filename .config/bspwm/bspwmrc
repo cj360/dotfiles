@@ -1,16 +1,18 @@
 #! /bin/sh
 
 ### Autostart ###
+mpd &
 sxhkd &
 dunst &
-mpd &
 compton &
-unclutter &
 redshift &
 caffeine &
-#nfancurve -c ~/.config/nfancurve/config &
-~/.config/polybar/launch.sh &
+unclutter &
+blueman-applet &
 /usr/bin/lxpolkit &
+~/.config/polybar/launch.sh &
+~/.config/nvidia_fanspeed.sh &
+#nfancurve -c ~/.config/nfancurve/config &
 
 ### Individual Rules ###
 bspc rule -a mpv state=fullscreen
@@ -19,7 +21,7 @@ bspc rule -a feh state=fullscreen
 ### General Stuff ###
 bspc monitor -d I II III IV V
 
-bspc config border_width            2
+bspc config border_width            1.2
 
 #bspc config borderless_monocle      true
 #bspc config gapless_monocle         true

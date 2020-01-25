@@ -15,7 +15,7 @@ super + shift + l
 	~/.config/lock_distort.sh
 
 #Screenshot
-super + shift + p
+Print
 	maim ~/Pictures/Screenshots/$(date +%F+%T).png
 
 # Volume Controls
