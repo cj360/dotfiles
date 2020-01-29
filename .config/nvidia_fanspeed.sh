@@ -28,7 +28,7 @@ MINSPEED=0
 # What fan speed to set at what temperature, for example set the fan speed at 25% when GPU temp is 50 degrees.
 # All other values are calculated on the fly, pass the SHOWMAP=true environment variable to show the calculated values.
 TEMP[0]=40
-SPEED[0]=40
+SPEED[0]=45
 
 TEMP[1]=60
 SPEED[1]=60

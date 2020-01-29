@@ -12,7 +12,7 @@ super + @space
 
 #lock screen
 super + shift + l
-	~/.config/lock_distort.sh
+	i3lock -e --clock --timestr="%I:%M" --timecolor=ffffffff --timesize=30 --datecolor=ffffffff --datesize=30 -B=20
 
 #Screenshot
 Print
