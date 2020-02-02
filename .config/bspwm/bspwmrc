@@ -38,7 +38,7 @@ redshift &
 caffeine &
 unclutter &
 #blueman-applet &
-~/.config/polybar/launch.sh &
+~/.config/polybar/launch.sh
 ~/.config/nvidia_fanspeed.sh &
 #nfancurve -c ~/.config/nfancurve/config &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

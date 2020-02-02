@@ -1,178 +1,116 @@
-##############
-#   Colors
-##############
-
 [colors]
-background = ${xrdb:color0}
-background-alt = ${xrdb:color1}
-foreground = ${xrdb:color7}
-foreground-alt = ${xrdb:color6}
-primary = ${xrdb:color12}
-secondary = ${xrdb:color2}
-alert = ${xrdb:color3}
+foreground = ${xrdb:foreground}
+background = ${xrdb:background}
 
-pulse = ${xrdb:color4}
-date = ${xrdb:color5}
-cpu-temp = ${xrdb:color2}
-gpu-temp = ${xrdb:color6}
-mpd = ${xrdb:color4}
-bspwm = ${xrdb:color3}
+00 = ${xrdb:color0}
+08 = ${xrdb:color8}
 
-##############
-#   Settings
-##############
+01 = ${xrdb:color1}
+09 = ${xrdb:color9}
 
-[settings]
-screenchange-reload = true
+02 = ${xrdb:color2}
+10 = ${xrdb:color10}
+
+03 = ${xrdb:color3}
+11 = ${xrdb:color11}
+
+04 = ${xrdb:color4}
+12 = ${xrdb:color12}
+
+05 = ${xrdb:color5}
+13 = ${xrdb:color13}
+
+06 = ${xrdb:color6}
+14 = ${xrdb:color14}
+
+07 = ${xrdb:color7}
+15 = ${xrdb:color15}
+
+clear = #00000000
+alphabg = #CC282a36
+alphaborder = #CC686868
 
 
-##############
-#   WM
-##############
-
-[global/wm]
-margin-top = 0
-margin-bottom = 0
-
-
-[bar/top]
-;monitor = DVI-I-1
-width = 100%
-height = 20
-;fixed-center = true
+[bar/left]
+modules-left = bspwm
+modules-center =
+;modules-right = 
+height = 2.25%
+width = 10%
+offset-x = .5% 
+offset-y = 1% 
+;radius = 0.0
+;padding = 1 
+padding-right = 2
+override-redirect = true
+line-size = 2
+border-size = 0.1% 
+border-color = ${colors.06}
+wm-restack = bspwm
+enable-ipc = true
 background = ${colors.background}
 foreground = ${colors.foreground}
-;monitor-strict = true
+font-0 = Iosevka Nerd Font:style=Regular:size=11:antialias=true
+;font-1 = Hack Nerd Font:size=20
 
-border-top-size = 7
-border-bottom-size = 7
-
-border-top-color = ${colors.background}
-border-bottom-color = ${colors.background}
-border-left-color = ${colors.background}
-border-right-color = ${colors.background}
-
-font-0 = Hack Nerd Font:style=Regular:pixelsize=11;2
-font-1 = Hack Nerd Font:fontformat=truetype:size=14:antialias=false;3
-
-modules-left = powermenu left-bspwm bspwm right-bspwm
-modules-center = left-mpd mpd right-mpd
-modules-right =  left-cput cpu-temp right-cput left-gput gpu-temp right-gput left-pulse pulseaudio right-pulse left-date date right-date
-
-tray-position = right
-tray-padding = .5
-;tray-detached = true
-;tray-maxsize = 16
-tray-scale = 1.0
-tray-detached = false
-tray-background = ${colors.background}
-
-wm-restack = bspwm
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
-
-
-##############
-#   Bspwm
-##############
 
 [module/bspwm]
 type = internal/bspwm
+format = <label-state>
+;label-focused = %name%
+;label-focused-underline = ${colors.05}
+;label-focused-padding = 1
+;label-occupied = %name%
+;label-occupied-underline = ${colors.02}
+;label-occupied-padding = 1
+;label-urgent = %name%
+;label-empty = %name%
+;label-empty-padding = 1
+;label-empty-foreground = ${colors.08}
+;label-separator = |
+;label-separator-foreground = ${colors.foreground}
+###
+label-focused = "  "
+label-focused-foreground = ${colors.05}
+label-focused-background = ${colors.background}
 
-format = <label-state> <label-mode>
-;label-monitor = %name%
+label-occupied = "  "
+label-occupied-foreground = ${colors.02}
+label-occupied-background = ${colors.background}
 
-label-focused = "  "
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.bspwm}
+label-urgent = "  "
+label-urgent-foreground = ${colors.03}
+label-urgent-background = ${colors.background}
 
-label-occupied = "  "
-label-occupied-foreground = ${colors.secondary}
-label-occupied-background = ${colors.bspwm}
+label-empty = "  "
+label-empty-foreground = ${colors.08}
+label-empty-background = ${colors.background}
 
-label-urgent = "  "
-label-urgent-foreground = ${colors.alert}
-label-urgent-background = ${colors.bspwm}
+[bar/center]
+modules-left = 
+modules-center = mpd
+modules-right =  
+height = ${bar/left.height}
+width = 10%
+offset-x = 45%
+offset-y = ${bar/left.offset-y}
+;radius = ${bar/left.radius}
+module-margin = 1
+padding = 2
+override-redirect = true
+border-size = ${bar/left.border-size}
+border-color = ${bar/left.border-color}
+wm-restack = bspwm
+background = ${bar/left.background}
+foreground = ${bar/left.foreground}
+font-0 = ${bar/left.font-0} 
+;font-1 = ${bar/left.font-1}
 
-label-empty = "  "
-label-empty-foreground = ${colors.foreground}
-label-empty-background = ${colors.bspwm}
-
-
-##############
-#  Cpu Temperature
-##############
-
-[module/cpu-temp]
-type = internal/temperature
-interval = 2
-warn-temperature = 70
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
-
-
-format = <label>
-format-warn = <label-warn>
-format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.cpu-temp}
-
-label = " %temperature-c%"
-label-warn = " %temperature-c%"
-label-background = ${colors.cpu-temp}
-label-warn-foreground = ${colors.alert}
-
-ramp-background = ${colors.cpu-temp}
-ramp-0 = "  "
-ramp-1 = "  "
-ramp-2 = "  "
-ramp-3 = "  "
-ramp-4 = "  "
-
-
-##############
-#  Gpu Temperature
-##############
-
-[module/gpu-temp]
-type = custom/script
-
-exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
-interval = 2
-
-label =" %output%°C"
-label-background = ${colors.gpu-temp}
-format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.gpu-temp}
-
-
-##############
-#   Pulseaudio
-##############
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <ramp-volume><label-volume>
-
-label-volume = "%percentage%"
-label-volume-background = ${colors.pulse}
-label-muted = " 婢 muted "
-label-muted-background = ${colors.pulse}
-label-muted-foreground = #666
-
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
-ramp-volume-background = ${colors.pulse}
-
-
-##############
-#   MPD
-##############
 
 [module/mpd]
 type = internal/mpd
 format-online = <label-song> <icon-prev> <toggle> <icon-next>
-format-online-background = ${colors.mpd}
+format-online-background = ${bar/left.background}
 
 icon-prev = " 玲"
 icon-stop =  " 栗"
@@ -185,119 +123,75 @@ label-song-maxlen = 35
 label-song-ellipsis = true
 
 
-##############
-#   Date
-##############
+[bar/right]
+modules-left = cpu temperature memory 
+modules-center = pulseaudio
+modules-right = date
+height = ${bar/left.height}
+width = 28%
+offset-x = 71.5%
+offset-y = ${bar/left.offset-y}
+;radius = ${bar/left.radius}
+module-margin = 1 
+padding = 1 
+override-redirect = true
+fixed-center = false
+border-size = ${bar/left.border-size}
+border-color = ${bar/left.border-color}
+wm-restack = bspwm
+background = ${bar/left.background}
+foreground = ${bar/left.foreground}
+font-0 = ${bar/left.font-0} 
+;font-1 = ${bar/left.font-1}
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label>
+label = cpu %percentage:1:3%% 
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+base-temperature = 45
+warn-temperature = 70
+format = temp <label>
+format-warn = temp <label-warn>
+label = %temperature-c:2:3%C
+label-foreground = ${colors.06}
+label-warn = %temperature-c:2:3%C
+label-warn-foreground = ${colors.01}
+interval = 2
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = <label>
+label = mem %percentage_used:1:3%%
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage:2:3%%
+format-muted = <label-muted>
+label-muted = %{T2}ﱝ%{T-}
+ramp-volume-0 = %{T2}%{T-}
+ramp-volume-1 = %{T2}%{T-}
+ramp-volume-2 = %{T2}%{T-}
+ramp-volume-3 = %{T2}墳%{T-}
+ramp-volume-4 = %{T2}墳%{T-}
+ramp-volume-5 = %{T2}墳%{T-}
+
 
 [module/date]
 type = internal/date
-interval = 1
-
-format =  " <label>"
-format-foreground = ${colors.foreground}
-format-background = ${colors.date}
-
-label = "%time%"
-label-foreground = ${colors.foreground}
-
 time = %I:%M
-time-alt = %a %d, %Y
-
-
-##############
-#   Glyphs
-##############
-
-[module/glyph]
-type = custom/text
-content-background = ${colors.background}
-
-[module/left-cput]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.cpu-temp}
-
-[module/right-cput]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.cpu-temp}
-
-[module/left-gput]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.gpu-temp}
-
-[module/right-gput]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.gpu-temp}
-
-[module/left-pulse]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.pulse}
-
-[module/right-pulse]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.pulse}
-
-[module/left-date]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.date}
-
-[module/right-date]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.date}
-
-[module/right-mpd]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.mpd}
-
-[module/left-mpd]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.mpd}
-
-[module/left-bspwm]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.bspwm}
-
-[module/right-bspwm]
-inherit = module/glyph
-content = "%{T2}%{T-}"
-content-foreground = ${colors.bspwm}
-
-
-##############
-#   Powermenu
-##############
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 2
-
-label-open = " "
-
-label-open-background = ${colors.background}
-label-close = cancel
-label-close-foreground = ${colors.foreground}
-label-separator = |
-label-separator-foreground = ${colors.foreground}
-
-;menu-0-0 = 
-;menu-0-0-exec = systemctl suspend
-menu-0-0 = 
-menu-0-0-exec = bspc quit
-menu-0-1 = 
-menu-0-1-exec = systemctl reboot
-menu-0-2 = "  "
-menu-0-2-exec = systemctl poweroff
-
-
-; vim:ft=dosini
+time-alt = %b %a %d, %Y
+format = <label>
+label = %time%
