@@ -31,29 +31,97 @@ alphabg = #CC282a36
 alphaborder = #CC686868
 
 
-[bar/left]
-modules-left = bspwm
-modules-center =
-;modules-right = 
-height = 2.25%
-width = 10%
-offset-x = .5% 
-offset-y = 1% 
-;radius = 0.0
-;padding = 1 
-padding-right = 2
-override-redirect = true
-line-size = 2
-border-size = 0.1% 
-border-color = ${colors.06}
-wm-restack = bspwm
-enable-ipc = true
+[common]
 background = ${colors.background}
-foreground = ${colors.foreground}
+border-color = ${colors.01}
+border-size = 1
 font-0 = Iosevka Nerd Font:style=Regular:size=11:antialias=true
-;font-1 = Hack Nerd Font:size=20
+;font-1 = "siji:pixelsize=15;1"
+;font-2 = "Material Design Icons:size=12;1"
+foreground = ${colors.foreground}
+height = 27
+line-size = 0
+module-margin-right = 5
+offset-y = 1%
+override-redirect = true
+padding = 1
+padding-right = 1
+radius = 0.0
+wm-restack = bspwm
+
+[bar/left]
+modules-left = powermenu bspwm
+modules-right =
+offset-x = 1%
+width = 11%
+
+;inherited
+background = ${common.background}
+border-color = ${common.border-color}
+border-size = ${common.border-size}
+font-0 = ${common.font-0}
+;font-1 = ${common.font-1}
+;font-2 = ${common.font-2}
+foreground = ${common.foreground}
+height = ${common.height}
+line-size = ${common.line-size}
+module-margin-right = ${common.module-margin-right
+offset-y = ${common.offset-y}
+override-redirect = ${common.override-redirect}
+padding = ${common.padding}
+padding-right = ${common.padding-right}
+radius = ${common.radius}
+wm-restack = ${common.wm-restack}
 
 
+[bar/center]
+modules-center = mpd
+width = 12%
+offset-x = 42%
+
+;inherited
+background = ${common.background}
+border-color = ${common.border-color}
+border-size = ${common.border-size}
+font-0 = ${common.font-0}
+;font-1 = ${common.font-1}
+;font-2 = ${common.font-2}
+foreground = ${common.foreground}
+height = ${common.height}
+line-size = ${common.line-size}
+module-margin-right = ${common.module-margin-right}
+offset-y = ${common.offset-y}
+override-redirect = ${common.override-redirect}
+padding = ${common.padding}
+padding-right = ${common.padding-right}
+radius = ${common.radius}
+wm-restack = ${common.wm-restack}
+
+
+[bar/right]
+modules-center = memory temperature cpu pulseaudio date
+width = 20%
+offset-x = 79%
+
+;inherited
+background = ${common.background}
+border-color = ${common.border-color}
+border-size = ${common.border-size}
+font-0 = ${common.font-0}
+;font-1 = ${common.font-1}
+;font-2 = ${common.font-2}
+foreground = ${common.foreground}
+height = ${common.height}
+line-size = ${common.line-size}
+module-margin-right = ${common.module-margin-right}
+offset-y = ${common.offset-y}
+override-redirect = ${common.override-redirect}
+padding = ${common.padding}
+padding-right = ${common.padding-right}
+radius = ${common.radius}
+wm-restack = ${common.wm-restack}
+
+###
 [module/bspwm]
 type = internal/bspwm
 format = <label-state>
@@ -86,27 +154,6 @@ label-empty = "  "
 label-empty-foreground = ${colors.08}
 label-empty-background = ${colors.background}
 
-[bar/center]
-modules-left = 
-modules-center = mpd
-modules-right =  
-height = ${bar/left.height}
-width = 10%
-offset-x = 45%
-offset-y = ${bar/left.offset-y}
-;radius = ${bar/left.radius}
-module-margin = 1
-padding = 2
-override-redirect = true
-border-size = ${bar/left.border-size}
-border-color = ${bar/left.border-color}
-wm-restack = bspwm
-background = ${bar/left.background}
-foreground = ${bar/left.foreground}
-font-0 = ${bar/left.font-0} 
-;font-1 = ${bar/left.font-1}
-
-
 [module/mpd]
 type = internal/mpd
 format-online = <label-song> <icon-prev> <toggle> <icon-next>
@@ -122,27 +169,6 @@ label-song = " %title% "
 label-song-maxlen = 35
 label-song-ellipsis = true
 
-
-[bar/right]
-modules-left = cpu temperature memory 
-modules-center = pulseaudio
-modules-right = date
-height = ${bar/left.height}
-width = 28%
-offset-x = 71.5%
-offset-y = ${bar/left.offset-y}
-;radius = ${bar/left.radius}
-module-margin = 1 
-padding = 1 
-override-redirect = true
-fixed-center = false
-border-size = ${bar/left.border-size}
-border-color = ${bar/left.border-color}
-wm-restack = bspwm
-background = ${bar/left.background}
-foreground = ${bar/left.foreground}
-font-0 = ${bar/left.font-0} 
-;font-1 = ${bar/left.font-1}
 
 
 [module/cpu]
@@ -176,7 +202,8 @@ label = mem %percentage_used:1:3%%
 
 [module/pulseaudio]
 type = internal/pulseaudio
-sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+click-right = pavucontrol &
+;sink = alsa_output.pci-0000_00_1b.0.analog-stereo
 format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage:2:3%%
 format-muted = <label-muted>
@@ -193,5 +220,30 @@ ramp-volume-5 = %{T2}墳%{T-}
 type = internal/date
 time = %I:%M
 time-alt = %b %a %d, %Y
-format = <label>
+format =  <label>
 label = %time%
+
+
+[module/powermenu]
+type = custom/menu
+format-spacing = 2
+label-open = " "
+label-open-background = ${colors.background}
+label-close = cancel
+label-close-foreground = ${colors.foreground}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+;menu-0-0 = 
+;menu-0-0-exec = systemctl suspend
+menu-0-0 = 
+menu-0-0-exec = bspc quit
+menu-0-1 = 
+menu-0-1-exec = systemctl reboot
+menu-0-2 = "  "
+menu-0-2-exec = systemctl poweroff
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+; vim:ft=dosini

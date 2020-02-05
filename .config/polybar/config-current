@@ -1,0 +1,301 @@
+##############
+#   Colors
+##############
+
+[colors]
+background = ${xrdb:color0}
+background-alt = ${xrdb:color1}
+foreground = ${xrdb:color7}
+foreground-alt = ${xrdb:color6}
+primary = ${xrdb:color12}
+secondary = ${xrdb:color2}
+alert = ${xrdb:color3}
+
+pulse = ${xrdb:color4}
+date = ${xrdb:color5}
+cpu-temp = ${xrdb:color2}
+gpu-temp = ${xrdb:color6}
+mpd = ${xrdb:color4}
+bspwm = ${xrdb:color3}
+
+##############
+#   Settings
+##############
+
+[settings]
+screenchange-reload = true
+
+
+##############
+#   WM
+##############
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+[bar/top]
+;monitor = DVI-I-1
+width = 100%
+height = 20
+;fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+;monitor-strict = true
+
+border-top-size = 7
+border-bottom-size = 7
+
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+border-left-color = ${colors.background}
+border-right-color = ${colors.background}
+
+font-0 = Hack Nerd Font:style=Regular:pixelsize=11;2
+font-1 = Hack Nerd Font:fontformat=truetype:size=14:antialias=false;3
+;font-2 = Iosevka Nerd Font:style=Regular:size=11:antialias=true
+
+modules-left = powermenu left-bspwm bspwm right-bspwm
+modules-center = left-mpd mpd right-mpd
+modules-right =  left-cput cpu-temp right-cput left-gput gpu-temp right-gput left-pulse pulseaudio right-pulse left-date date right-date
+
+tray-position = right
+tray-padding = .5
+;tray-detached = true
+;tray-maxsize = 16
+tray-scale = 1.0
+tray-detached = false
+tray-background = ${colors.background}
+
+wm-restack = bspwm
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+
+##############
+#   Bspwm
+##############
+
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state> <label-mode>
+;label-monitor = %name%
+
+label-focused = "  "
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.bspwm}
+
+label-occupied = "  "
+label-occupied-foreground = ${colors.secondary}
+label-occupied-background = ${colors.bspwm}
+
+label-urgent = "  "
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.bspwm}
+
+label-empty = "  "
+label-empty-foreground = ${colors.foreground}
+label-empty-background = ${colors.bspwm}
+
+
+##############
+#  Cpu Temperature
+##############
+
+[module/cpu-temp]
+type = internal/temperature
+interval = 2
+warn-temperature = 70
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+
+
+format = <label>
+format-warn = <label-warn>
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.cpu-temp}
+
+label = " %temperature-c%"
+label-warn = " %temperature-c%"
+label-background = ${colors.cpu-temp}
+label-warn-foreground = ${colors.alert}
+
+ramp-background = ${colors.cpu-temp}
+ramp-0 = "  "
+ramp-1 = "  "
+ramp-2 = "  "
+ramp-3 = "  "
+ramp-4 = "  "
+
+
+##############
+#  Gpu Temperature
+##############
+
+[module/gpu-temp]
+type = custom/script
+
+exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+interval = 2
+
+label =" %output%°C"
+label-background = ${colors.gpu-temp}
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.gpu-temp}
+
+
+##############
+#   Pulseaudio
+##############
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume><label-volume>
+
+label-volume = "%percentage%"
+label-volume-background = ${colors.pulse}
+label-muted = " 婢 muted "
+label-muted-background = ${colors.pulse}
+label-muted-foreground = #666
+
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-background = ${colors.pulse}
+
+
+##############
+#   MPD
+##############
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song> <icon-prev> <toggle> <icon-next>
+format-online-background = ${colors.mpd}
+
+icon-prev = " 玲"
+icon-stop =  " 栗"
+icon-play=  " 契"
+icon-pause = " "
+icon-next =  " 怜"
+
+label-song = " %title% "
+label-song-maxlen = 35
+label-song-ellipsis = true
+
+
+##############
+#   Date
+##############
+
+[module/date]
+type = internal/date
+interval = 1
+
+format =  " <label>"
+format-foreground = ${colors.foreground}
+format-background = ${colors.date}
+
+label = "%time%"
+label-foreground = ${colors.foreground}
+
+time = %I:%M
+time-alt = %b %a %d, %Y
+
+
+##############
+#   Glyphs
+##############
+
+[module/glyph]
+type = custom/text
+content-background = ${colors.background}
+
+[module/left-cput]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.cpu-temp}
+
+[module/right-cput]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.cpu-temp}
+
+[module/left-gput]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.gpu-temp}
+
+[module/right-gput]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.gpu-temp}
+
+[module/left-pulse]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.pulse}
+
+[module/right-pulse]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.pulse}
+
+[module/left-date]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.date}
+
+[module/right-date]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.date}
+
+[module/right-mpd]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.mpd}
+
+[module/left-mpd]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.mpd}
+
+[module/left-bspwm]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.bspwm}
+
+[module/right-bspwm]
+inherit = module/glyph
+content = "%{T2}%{T-}"
+content-foreground = ${colors.bspwm}
+
+
+##############
+#   Powermenu
+##############
+
+[module/powermenu]
+type = custom/menu
+format-spacing = 2
+label-open = " "
+label-open-background = ${colors.background}
+label-close = cancel
+label-close-foreground = ${colors.foreground}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+;menu-0-0 = 
+;menu-0-0-exec = systemctl suspend
+menu-0-0 = 
+menu-0-0-exec = bspc quit
+menu-0-1 = 
+menu-0-1-exec = systemctl reboot
+menu-0-2 = "  "
+menu-0-2-exec = systemctl poweroff
+
+
+; vim:ft=dosini
