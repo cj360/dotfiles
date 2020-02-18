@@ -30,134 +30,80 @@ clear = #00000000
 alphabg = #CC282a36
 alphaborder = #CC686868
 
+;==========================================================
 
-[common]
+[bar/main]
+;radius-top = 2.5
+;radius-bottom = 2.5
+;monitor = DP-2
+width = 99%
+;height = 25
+offset-x = .5%
+offset-y = .5%
+;bottom = true
+fixed-center = true
+;line-size = 0
 background = ${colors.background}
-border-color = ${colors.01}
-border-size = 1
-font-0 = Iosevka Nerd Font:style=Regular:size=11:antialias=true
-;font-1 = "siji:pixelsize=15;1"
-;font-2 = "Material Design Icons:size=12;1"
 foreground = ${colors.foreground}
-height = 27
-line-size = 0
-module-margin-right = 5
-offset-y = 1%
-override-redirect = true
-padding = 1
-padding-right = 1
-radius = 0.0
-wm-restack = bspwm
 
-[bar/left]
-modules-left = powermenu bspwm
-modules-right =
-offset-x = 1%
-width = 11%
+border-size = 2
+border-color = ${colors.02}
 
-;inherited
-background = ${common.background}
-border-color = ${common.border-color}
-border-size = ${common.border-size}
-font-0 = ${common.font-0}
-;font-1 = ${common.font-1}
-;font-2 = ${common.font-2}
-foreground = ${common.foreground}
-height = ${common.height}
-line-size = ${common.line-size}
-module-margin-right = ${common.module-margin-right
-offset-y = ${common.offset-y}
-override-redirect = ${common.override-redirect}
-padding = ${common.padding}
-padding-right = ${common.padding-right}
-radius = ${common.radius}
-wm-restack = ${common.wm-restack}
+;module-margin-left = 1
+;module-margin-right = 2
+module-margin = "   "
 
+;==========================================================
 
-[bar/center]
+font-0 = Iosevka Nerd Font:style=Regular:size=12:antialias=true;1
+
+tray-position = right
+;tray-detached = true
+;tray-offset-x = -4
+tray-padding = 1
+tray-maxsize = 14
+
+;== Module Location =======================================
+
+modules-left = bspwm
 modules-center = mpd
-width = 12%
-offset-x = 42%
+modules-right = gpu-temp cpu-temp pulseaudio date 
+;gpuC cpuC 
 
-;inherited
-background = ${common.background}
-border-color = ${common.border-color}
-border-size = ${common.border-size}
-font-0 = ${common.font-0}
-;font-1 = ${common.font-1}
-;font-2 = ${common.font-2}
-foreground = ${common.foreground}
-height = ${common.height}
-line-size = ${common.line-size}
-module-margin-right = ${common.module-margin-right}
-offset-y = ${common.offset-y}
-override-redirect = ${common.override-redirect}
-padding = ${common.padding}
-padding-right = ${common.padding-right}
-radius = ${common.radius}
-wm-restack = ${common.wm-restack}
+;== Modules ===============================================
 
-
-[bar/right]
-modules-center = memory temperature cpu pulseaudio date
-width = 20%
-offset-x = 79%
-
-;inherited
-background = ${common.background}
-border-color = ${common.border-color}
-border-size = ${common.border-size}
-font-0 = ${common.font-0}
-;font-1 = ${common.font-1}
-;font-2 = ${common.font-2}
-foreground = ${common.foreground}
-height = ${common.height}
-line-size = ${common.line-size}
-module-margin-right = ${common.module-margin-right}
-offset-y = ${common.offset-y}
-override-redirect = ${common.override-redirect}
-padding = ${common.padding}
-padding-right = ${common.padding-right}
-radius = ${common.radius}
-wm-restack = ${common.wm-restack}
-
-###
 [module/bspwm]
 type = internal/bspwm
 format = <label-state>
-;label-focused = %name%
-;label-focused-underline = ${colors.05}
-;label-focused-padding = 1
-;label-occupied = %name%
-;label-occupied-underline = ${colors.02}
-;label-occupied-padding = 1
-;label-urgent = %name%
-;label-empty = %name%
-;label-empty-padding = 1
-;label-empty-foreground = ${colors.08}
-;label-separator = |
-;label-separator-foreground = ${colors.foreground}
-###
-label-focused = "  "
+label-focused = 
+label-focused-padding = 1
 label-focused-foreground = ${colors.05}
 label-focused-background = ${colors.background}
 
-label-occupied = "  "
-label-occupied-foreground = ${colors.02}
+label-occupied = 
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.08}
 label-occupied-background = ${colors.background}
 
-label-urgent = "  "
+label-urgent = 
+label-urgent-padding = 1
 label-urgent-foreground = ${colors.03}
 label-urgent-background = ${colors.background}
 
-label-empty = "  "
+label-empty = 
+label-empty-padding = 1
 label-empty-foreground = ${colors.08}
 label-empty-background = ${colors.background}
+;label-empty =
+
+;==========================================================
+
 
 [module/mpd]
 type = internal/mpd
+format-padding = 1
 format-online = <label-song> <icon-prev> <toggle> <icon-next>
-format-online-background = ${bar/left.background}
+format-online-background = ${colors.background}
 
 icon-prev = " 玲"
 icon-stop =  " 栗"
@@ -165,55 +111,56 @@ icon-play=  " 契"
 icon-pause = " "
 icon-next =  " 怜"
 
-label-song = " %title% "
-label-song-maxlen = 35
+label-song = %title%
+label-song-maxlen = 30
 label-song-ellipsis = true
 
+;==========================================================
 
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format = <label>
-label = cpu %percentage:1:3%% 
-
-
-[module/temperature]
+[module/cpu-temp]
 type = internal/temperature
+interval = 2
 thermal-zone = 0
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
-base-temperature = 45
-warn-temperature = 70
-format = temp <label>
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+base-temperature = 20
+warn-temperature = 78
+format =  <label>
+format-padding = 1
 format-warn = temp <label-warn>
 label = %temperature-c:2:3%C
-label-foreground = ${colors.06}
+;label-foreground = ${colors.05}
 label-warn = %temperature-c:2:3%C
 label-warn-foreground = ${colors.01}
-interval = 2
 
 
-[module/memory]
-type = internal/memory
+
+[module/gpu-temp]
+type = custom/script
 interval = 2
-format = <label>
-label = mem %percentage_used:1:3%%
+exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+label =   %output%°C
+format-padding = 1
+;label-foreground = ${colors.05}
+label-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground}
 
 
 [module/pulseaudio]
 type = internal/pulseaudio
-click-right = pavucontrol &
-;sink = alsa_output.pci-0000_00_1b.0.analog-stereo
-format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage:2:3%%
-format-muted = <label-muted>
-label-muted = %{T2}ﱝ%{T-}
-ramp-volume-0 = %{T2}%{T-}
-ramp-volume-1 = %{T2}%{T-}
-ramp-volume-2 = %{T2}%{T-}
-ramp-volume-3 = %{T2}墳%{T-}
-ramp-volume-4 = %{T2}墳%{T-}
-ramp-volume-5 = %{T2}墳%{T-}
+format-volume-padding = 1
+format-volume = <ramp-volume> <label-volume> 
+
+label-volume = "%percentage%"
+format-muted-padding = 1
+label-volume-background = ${colors.background}
+label-muted = 婢 muted
+label-muted-background = ${colors.background}
+label-muted-foreground = ${colors.08}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-background = ${colors.background}
 
 
 [module/date]
@@ -221,29 +168,7 @@ type = internal/date
 time = %I:%M
 time-alt = %b %a %d, %Y
 format =  <label>
+format-muted-padding = 1
 label = %time%
 
-
-[module/powermenu]
-type = custom/menu
-format-spacing = 2
-label-open = " "
-label-open-background = ${colors.background}
-label-close = cancel
-label-close-foreground = ${colors.foreground}
-label-separator = |
-label-separator-foreground = ${colors.foreground}
-
-;menu-0-0 = 
-;menu-0-0-exec = systemctl suspend
-menu-0-0 = 
-menu-0-0-exec = bspc quit
-menu-0-1 = 
-menu-0-1-exec = systemctl reboot
-menu-0-2 = "  "
-menu-0-2-exec = systemctl poweroff
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 ; vim:ft=dosini
