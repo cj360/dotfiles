@@ -40,9 +40,8 @@ width = 99%
 ;height = 25
 offset-x = .5%
 offset-y = .5%
-;bottom = true
 fixed-center = true
-;line-size = 0
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -65,36 +64,42 @@ tray-maxsize = 14
 
 ;== Module Location =======================================
 
-modules-left = bspwm
+modules-left = workspaces
 modules-center = mpd
-modules-right = gpu-temp cpu-temp pulseaudio date 
+modules-right = gpu-temp cpu-temp pulseaudio-control date 
 ;gpuC cpuC 
 
 ;== Modules ===============================================
 
-[module/bspwm]
-type = internal/bspwm
+[module/workspaces]
+type = internal/xworkspaces
+
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+
 format = <label-state>
-label-focused = 
-label-focused-padding = 1
-label-focused-foreground = ${colors.05}
-label-focused-background = ${colors.background}
+format-padding = 0
+label-monitor = %name%
 
-label-occupied = 
+label-active = %name%
+label-active-foreground = ${colors.foreground}
+label-active-background = ${colors.05}
+label-active-padding = 1
+
+label-occupied = %icon%
+label-occupied-underline = ${colors.foreground}
 label-occupied-padding = 1
-label-occupied-foreground = ${colors.08}
-label-occupied-background = ${colors.background}
 
-label-urgent = 
-label-urgent-padding = 1
-label-urgent-foreground = ${colors.03}
+label-urgent = %icon%
+label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.background}
+label-urgent-padding = 1
 
-label-empty = 
-label-empty-padding = 1
-label-empty-foreground = ${colors.08}
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
 label-empty-background = ${colors.background}
-;label-empty =
+label-empty-padding = 1
 
 ;==========================================================
 
@@ -132,7 +137,7 @@ label = %temperature-c:2:3%C
 label-warn = %temperature-c:2:3%C
 label-warn-foreground = ${colors.01}
 
-
+;==========================================================
 
 [module/gpu-temp]
 type = custom/script
@@ -144,24 +149,24 @@ format-padding = 1
 label-background = ${colors.background}
 format-prefix-foreground = ${colors.foreground}
 
+;==========================================================
 
-[module/pulseaudio]
-type = internal/pulseaudio
-format-volume-padding = 1
-format-volume = <ramp-volume> <label-volume> 
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label=%output%
+format-underline = ${colors.foreground}
 
-label-volume = "%percentage%"
-format-muted-padding = 1
-label-volume-background = ${colors.background}
-label-muted = 婢 muted
-label-muted-background = ${colors.background}
-label-muted-foreground = ${colors.08}
+exec = ~/.config/polybar/scripts/pulseaudio-control.bash listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/pulseaudio-control.bash togmute
+click-middle = ~/.config/polybar/scripts/pulseaudio-control.bash next-sink
+scroll-up = ~/.config/polybar/scripts/pulseaudio-control.bash up
+scroll-down = ~/.config/polybar/scripts/pulseaudio-control.bash down
+label-padding = 1
+label-foreground = ${colors.foreground}
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-background = ${colors.background}
-
+;==========================================================
 
 [module/date]
 type = internal/date

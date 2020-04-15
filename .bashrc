@@ -20,7 +20,4 @@ alias mpv1080="mpv --ytdl-format='bestvideo[ext=mp4][width<=1920][height<=1080]+
 alias youtube-dl="youtube-dl -o '%(title)s.%(ext)s' --restrict-filenames"
 
 # Import colorscheme from 'wal'
-#(cat ~/.cache/wal/sequences &)
-
-#Import colorscheme from 'wpg'
-(cat $HOME/.config/wpg/sequences &)
+(cat ~/.cache/wal/sequences &)
