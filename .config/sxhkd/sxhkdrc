@@ -10,11 +10,11 @@ super + Return
 super + @space
 	rofi -show run
 
-#lock screen
+# lock screen
 super + shift + l
-	i3lock -e --clock --timestr="%I:%M" --timecolor=ffffffff --timesize=30 --datecolor=ffffffff --datesize=30 -B=30
+	/home/andrew/.bin/i3lock.sh
 
-#Screenshot
+# Screenshot
 Print
 	maim ~/Pictures/Screenshots/$(date +%F+%T).png
 
